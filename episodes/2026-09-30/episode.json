@@ -5,9 +5,9 @@
   "date": "2026-09-30T18:00:00+02:00",
   "summary": "Amazon's parallel-decoding attribute extractor, AliExpress's correct-to-predict multimodal extraction, an AWS SFT+GRPO tagging walkthrough, Indeed's single-token scoring in production, and SRJudge's shortlist-then-reason concept tagging.",
   "audio": "audio.mp3",
-  "voice": "Kokoro af_heart (local)",
+  "voice": "ElevenLabs Daniel - Steady Broadcaster (eleven_v4)",
   "spotify_title": "Small Models, Real Systems — 30 Sep 2026",
-  "spotify_episode_uri": "spotify:episode:2yiLEB0juJgYeexOFpFQcv",
-  "spotify_url": "https://open.spotify.com/episode/2yiLEB0juJgYeexOFpFQcv",
+  "spotify_episode_uri": "spotify:episode:3EyASXt44ctGJAbXUDocAW",
+  "spotify_url": "https://open.spotify.com/episode/3EyASXt44ctGJAbXUDocAW",
   "spotify_ready": true
 }

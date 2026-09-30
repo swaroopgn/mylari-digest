@@ -81,7 +81,10 @@ def build_assets(d, ep, show, post_url):
         srcs = c.get("sources", [])
         link = "".join(f" - <a href='{u}'>source</a>" for u in srcs)
         parts.append(f"<p>{ts(c['start_time_ms'])} - {c['title']}{link}</p>")
-    parts.append(f"<p>{show['title']} - {show['subtitle']}. Narration is synthetic (Kokoro TTS).</p>")
+    meta_f = d / "audio.meta.json"
+    engine = json.loads(meta_f.read_text()).get("engine", "kokoro") if meta_f.exists() else "kokoro"
+    label = {"elevenlabs": "ElevenLabs", "kokoro": "Kokoro"}.get(engine, engine)
+    parts.append(f"<p>{show['title']} - {show['subtitle']}. Narration is synthetic ({label} TTS).</p>")
     desc = "".join(parts).replace("\n", " ")
     (d / "description.html").write_text(desc)
     return desc
