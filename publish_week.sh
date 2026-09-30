@@ -17,7 +17,12 @@ wait_live() {  # wait until every URL returns 200 (Pages rebuild usually takes 3
   done; echo "timed out waiting for: $*" >&2; return 1
 }
 
-[ "${2:-}" = "--skip-tts" ] || python3 build.py tts "$SLUG"
+ENGINE="$(python3 -c 'import json;print(json.load(open("show.json")).get("tts",{}).get("engine","kokoro"))')"
+if [ "$ENGINE" = elevenlabs ] && [ -z "${ELEVENLABS_API_KEY:-}" ]; then
+  echo "WARNING: ELEVENLABS_API_KEY not set in this environment - narration will fall back to Kokoro" >&2
+fi
+[ "${2:-}" = "--skip-tts" ] || python3 build.py tts "$SLUG"   # ElevenLabs (show.json tts), auto-fallback to Kokoro
+python3 -c "import json;m=json.load(open('episodes/$SLUG/audio.meta.json'));print('narration:',m['engine'],m.get('voice'),m.get('model_id',''),'credits:',m.get('character_cost','-'))" 2>/dev/null || true
 python3 build.py deploy --base-url "$BASE"
 wait_live "$BASE/" "$POST" "$MP3" "$BASE/feed.xml"
 python3 spotify_publish.py "$SLUG" --post-url "$POST"    # uploads once, pushes timeline, polls READY

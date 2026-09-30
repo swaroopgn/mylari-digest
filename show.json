@@ -23,8 +23,18 @@
   },
   "kokoro": {
     "voice": "af_heart",
-    "speed": 1.05,
-    "gap_seconds": 0.8
+    "speed": 1.05
   },
-  "spotify_show_uri": "spotify:show:4sSTBBsZNmfedEmuXIWCHb"
+  "spotify_show_uri": "spotify:show:4sSTBBsZNmfedEmuXIWCHb",
+  "tts": {
+    "engine": "elevenlabs",
+    "fallback": "kokoro",
+    "gap_seconds": 0.8,
+    "elevenlabs": {
+      "voice_name": "Daniel - Steady Broadcaster",
+      "voice_id": "onwK4e9ZLuTAKqWW03F9",
+      "model_id": "eleven_v4",
+      "output_format": "mp3_44100_128"
+    }
+  }
 }

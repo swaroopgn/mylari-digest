@@ -2,3 +2,7 @@ site/
 .deploy/
 __pycache__/
 *.wav
+.tts-cache/
+episodes/*/audio-*.mp3
+episodes/*/audio-*.meta.json
+episodes/*/chapters-audio-*.json

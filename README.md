@@ -14,7 +14,8 @@ episodes/<YYYY-MM-DD>/
   post.md                      companion blog post (Markdown; tables supported)
   script.txt / chapters.json / audio.mp3        written by `build.py tts`
   timeline.json / description.html              written by spotify_publish.py
-make_audio.py    Kokoro TTS per segment + pauses -> loudnorm -> 128k mono MP3 + chapters.json
+make_audio.py    TTS per segment + pauses -> loudnorm -> 128k mono MP3 + chapters.json + <stem>.meta.json
+                 (ElevenLabs by default, automatic whole-episode fallback to Kokoro)
 make_cover.py    save-to-spotify cover recipe (CDN base art + white Montserrat Bold title)
 build.py         renders site/ (index, episode pages w/ audio player + chapters + transcript, feed.xml)
 serve.py         threaded static server for site/ with HTTP Range support
@@ -47,6 +48,22 @@ python3 build.py deploy                     # build + push sources to main + sit
 python3 spotify_publish.py <date> --post-url <base>/episodes/<date>/ [--dry-run]
 python3 serve.py 8787                       # local preview of site/ (Range-capable)
 ```
+
+## Narration (TTS)
+- Default: **ElevenLabs**, voice "Daniel - Steady Broadcaster" (`onwK4e9ZLuTAKqWW03F9`), model `eleven_v4`,
+  `mp3_44100_128`, configured in show.json -> `tts.elevenlabs`. Needs `ELEVENLABS_API_KEY` in the environment
+  (never commit or print it). Change voice/model there; list options with `GET /v1/voices` and `GET /v1/models`.
+- Fallback: if ElevenLabs errors (missing key, auth/permission, quota, repeated 429/5xx), the whole episode is
+  re-rendered with **Kokoro** (`kokoro.voice`, `kokoro.speed`) so the voice never switches mid-episode.
+  Force an engine: `./make_audio.py <date> --engine kokoro` (or `--no-fallback` to fail instead).
+- Paid ElevenLabs segments are cached in `episodes/<date>/.tts-cache/` (keyed on voice+model+text), so
+  re-renders (e.g. a different `--tempo` or gap) cost nothing unless the text changes.
+- Pace: Daniel on eleven_v4 reads ~125 words/min (769 words -> 6:15), slower than Kokoro. For the 4.5-5.5 min
+  target write ~600-680 words, or set `tts.elevenlabs.tempo` (pitch-preserving ffmpeg atempo, e.g. 1.1) -
+  `voice_settings.speed` had no measurable effect on eleven_v4 in testing.
+- Each render writes `<stem>.meta.json` (engine, voice, model, ElevenLabs `character-cost` credits billed).
+- Alternate renders: `./make_audio.py <date> --out audio-test.mp3` writes chapters-audio-test.json and
+  never touches audio.mp3 (git-ignored: `audio-*.mp3`).
 
 ## Notes
 - `spotify_publish.py` uploads exactly once. If a call errors ambiguously (e.g. HTTP 504) it checks the show for an
