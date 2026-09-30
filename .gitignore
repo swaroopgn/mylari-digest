@@ -1,0 +1,4 @@
+site/
+.deploy/
+__pycache__/
+*.wav

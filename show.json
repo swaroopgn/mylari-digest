@@ -1,0 +1,30 @@
+{
+  "title": "Small Models, Real Systems",
+  "subtitle": "A weekly research digest by Mylari",
+  "author": "Mylari",
+  "description": "A weekly ~5-minute research digest on fine-tuning small language models (LoRA/QLoRA/PEFT, distillation, instruction and structured-output tuning) for metadata generation and content-understanding systems: tagging, attribute extraction, taxonomy classification, moderation and retrieval enrichment. Practical methods, evaluation, and production lessons. Produced by Mylari.",
+  "language": "en",
+  "category": "Technology",
+  "explicit": false,
+  "owner_name": "Mylari",
+  "owner_email": "",
+  "base_url": "https://swaroopgn.github.io/mylari-digest",
+  "pronunciations": {
+    "Qwen2.5": "Kwen two point five",
+    "Qwen3": "Kwen three",
+    "Qwen": "Kwen",
+    "SRJudge": "S R Judge",
+    "ImplicitAVE": "Implicit A V E",
+    "micro F1": "micro F one",
+    "LoRA": "Lora",
+    "GRPO": "G R P O",
+    "GPU": "G P U",
+    "BERT": "Bert"
+  },
+  "kokoro": {
+    "voice": "af_heart",
+    "speed": 1.05,
+    "gap_seconds": 0.8
+  },
+  "spotify_show_uri": "spotify:show:7jCtkoakUBFQdJ7oDOVlRk"
+}

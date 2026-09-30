@@ -1,0 +1,49 @@
+{
+  "segments": [
+    {
+      "title": "Introduction",
+      "sources": [],
+      "text": "Hi, and welcome to Small Models, Real Systems, the weekly research digest by Mylari. This is a test edition, dated Wednesday the thirtieth of September, 2026. Each week we pick new papers and engineering write-ups on fine-tuning small language models, roughly under ten billion parameters, for metadata generation and content understanding. This week: five items, and a clear theme. Teams distill a big model into a small one, then spend their cleverness on decoding, rewards, and serving."
+    },
+    {
+      "title": "Amazon - parallel-decoding attribute extraction",
+      "sources": [
+        "https://arxiv.org/abs/2609.09716"
+      ],
+      "text": "Let's start at Amazon. In a paper first posted on the ninth of September, slightly older than our usual window, Nikhita Vedula and colleagues describe a two-stage pipeline for product attribute extraction. First, a large foundation model, Claude, discovers a compact, ranked schema of purchase-deciding attributes for each product category. Then a fine-tuned Qwen3 model with four billion parameters extracts the values. It learns from a hundred thousand examples labeled by Claude, which is classic distillation. The twist is Hyper-Parallel Decoding. Because attribute values are mostly independent, the model decodes them all at once instead of one long token chain. The result: about eighty-five percent extraction accuracy, confirmed by human judges and on par with the teacher. Throughput is a hundred and fifty-nine thousand products per hour per instance, versus eighteen thousand with normal decoding. For thirty million products, that's roughly five thousand dollars, against sixty-three thousand through the foundation model's batch service: a ninety-two percent cost cut. One nice detail: the eight-billion model did slightly worse than the four-billion one."
+    },
+    {
+      "title": "AliExpress - correct-to-predict multimodal extraction",
+      "sources": [
+        "https://arxiv.org/abs/2609.34383"
+      ],
+      "text": "Next, AliExpress. A paper from Alibaba International, posted on the twenty-eighth, tackles the hard part of attribute extraction: implicit values that need both the image and the text. Their method, called Correcting to Predict, fine-tunes the seven-billion-parameter Qwen2.5 vision-language model with Low-Rank Adaptation, or LoRA, but frames the task as correction. During training, it sees a plausible but possibly wrong value retrieved from similar products, and learns to fix it from the evidence. At inference, a fixed placeholder replaces retrieval, so serving stays single-pass. It reaches a micro F1 of eighty-eight point nine on the public ImplicitAVE benchmark, and keeps throughput close to a plain fine-tuned model: four point eight versus five point two queries per second on one GPU, while retrieval-augmented prompting drops to about one and a half. In a seven-day online test, deployable category and attribute pairs grew by twenty-two point six percent, and search filter usage rose by fifteen point six percent."
+    },
+    {
+      "title": "AWS - SFT + GRPO product tagging",
+      "sources": [
+        "https://aws.amazon.com/blogs/machine-learning/build-an-ai-powered-product-tagging-system-with-amazon-sagemaker-serverless-model-customization/"
+      ],
+      "text": "Third, a hands-on walkthrough from Amazon Web Services, published on the fifteenth. The authors tag retail products into a nine-field schema by fine-tuning Qwen3 eight billion, first with supervised fine-tuning, then with reinforcement learning from verifiable rewards, using Group Relative Policy Optimization, or GRPO. The reward is deterministic: format checks plus fuzzy tag matching, with a schedule that favors recall early and precision later. Supervised fine-tuning did the heavy lifting, taking the overall score from zero point three five to zero point six eight. GRPO then added only about one more point, trading a little precision for recall. The takeaway: here, reinforcement learning is a dial for your business trade-off, not a magic multiplier."
+    },
+    {
+      "title": "Indeed - single-token scoring in production",
+      "sources": [
+        "https://arxiv.org/abs/2609.18188"
+      ],
+      "text": "Fourth, Indeed. In a paper from the sixteenth, they turn candidate ranking into a single-token classification. The model outputs a grade from one to five, and the score is the expected value over those five token probabilities. No output parsing, one decoding step, and far less run-to-run variance. They fine-tune with a loss that mixes mean squared error and cross-entropy, and serve Qwen3 eight billion with separate LoRA adapters per variant, in eight-bit floating point. Online, low-relevance results on the employer side fell by twenty-seven point three percent. The production section is the real gift: outcome-tagged calls, a ninety-nine point eight percent usable-score rate, drift monitoring on logit distributions, and a forty-eight-hour shadow phase for new models."
+    },
+    {
+      "title": "SRJudge - shortlist, reason, judge",
+      "sources": [
+        "https://arxiv.org/abs/2609.36982"
+      ],
+      "text": "Finally, SRJudge, from Jinan University, posted just yesterday. It tags educational exercises with fine-grained concepts, from up to a hundred and fifty-five candidates, in three stages. A fine-tuned BERT selector narrows the list to five. A small Qwen model, one and a half billion parameters and trained with GRPO, reasons over that shortlist. Then a larger model judges. The key insight is a gap: BERT's top-one accuracy sits between sixty-three and seventy-two percent, but its top-five hit rate is above ninety-one."
+    },
+    {
+      "title": "Patterns this week and sign-off",
+      "sources": [],
+      "text": "So, the patterns this week. Distill from a frontier teacher, then win on systems: parallel decoding, single tokens, placeholders instead of retrieval. Treat reward shaping as a trade-off knob. And use shortlists to keep small models reliable. Links and numbers are in the companion post. Thanks for listening, and see you next week."
+    }
+  ]
+}

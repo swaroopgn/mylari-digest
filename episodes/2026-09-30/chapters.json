@@ -1,0 +1,50 @@
+{
+  "duration_ms": 322455,
+  "chapters": [
+    {
+      "title": "Introduction",
+      "start_time_ms": 0,
+      "sources": []
+    },
+    {
+      "title": "Amazon - parallel-decoding attribute extraction",
+      "start_time_ms": 32745,
+      "sources": [
+        "https://arxiv.org/abs/2609.09716"
+      ]
+    },
+    {
+      "title": "AliExpress - correct-to-predict multimodal extraction",
+      "start_time_ms": 103784,
+      "sources": [
+        "https://arxiv.org/abs/2609.34383"
+      ]
+    },
+    {
+      "title": "AWS - SFT + GRPO product tagging",
+      "start_time_ms": 170507,
+      "sources": [
+        "https://aws.amazon.com/blogs/machine-learning/build-an-ai-powered-product-tagging-system-with-amazon-sagemaker-serverless-model-customization/"
+      ]
+    },
+    {
+      "title": "Indeed - single-token scoring in production",
+      "start_time_ms": 218811,
+      "sources": [
+        "https://arxiv.org/abs/2609.18188"
+      ]
+    },
+    {
+      "title": "SRJudge - shortlist, reason, judge",
+      "start_time_ms": 265898,
+      "sources": [
+        "https://arxiv.org/abs/2609.36982"
+      ]
+    },
+    {
+      "title": "Patterns this week and sign-off",
+      "start_time_ms": 301295,
+      "sources": []
+    }
+  ]
+}

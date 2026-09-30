@@ -1,0 +1,10 @@
+{
+  "slug": "2026-09-30",
+  "number": 1,
+  "title": "Distill, then win on systems (test edition, 30 Sep 2026)",
+  "date": "2026-09-30T18:00:00+02:00",
+  "summary": "Amazon's parallel-decoding attribute extractor, AliExpress's correct-to-predict multimodal extraction, an AWS SFT+GRPO tagging walkthrough, Indeed's single-token scoring in production, and SRJudge's shortlist-then-reason concept tagging.",
+  "audio": "audio.mp3",
+  "voice": "Kokoro af_heart (local)",
+  "spotify_title": "Small Models, Real Systems — 30 Sep 2026"
+}

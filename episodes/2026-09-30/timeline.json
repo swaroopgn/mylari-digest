@@ -1,0 +1,95 @@
+{
+  "items": [
+    {
+      "chapter": {
+        "title": "Introduction",
+        "start_time_ms": 0
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 1000,
+        "duration_ms": 30745,
+        "url": "https://hygiene-chancellor-ordinance-rivers.trycloudflare.com/episodes/2026-09-30/"
+      }
+    },
+    {
+      "chapter": {
+        "title": "Amazon - parallel-decoding attribute extraction",
+        "start_time_ms": 32745
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 33745,
+        "duration_ms": 69039,
+        "url": "https://arxiv.org/abs/2609.09716"
+      }
+    },
+    {
+      "chapter": {
+        "title": "AliExpress - correct-to-predict multimodal extraction",
+        "start_time_ms": 103784
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 104784,
+        "duration_ms": 64723,
+        "url": "https://arxiv.org/abs/2609.34383"
+      }
+    },
+    {
+      "chapter": {
+        "title": "AWS - SFT + GRPO product tagging",
+        "start_time_ms": 170507
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 171507,
+        "duration_ms": 46304,
+        "url": "https://aws.amazon.com/blogs/machine-learning/build-an-ai-powered-product-tagging-system-with-amazon-sagemaker-serverless-model-customization/"
+      }
+    },
+    {
+      "chapter": {
+        "title": "Indeed - single-token scoring in production",
+        "start_time_ms": 218811
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 219811,
+        "duration_ms": 45087,
+        "url": "https://arxiv.org/abs/2609.18188"
+      }
+    },
+    {
+      "chapter": {
+        "title": "SRJudge - shortlist, reason, judge",
+        "start_time_ms": 265898
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 266898,
+        "duration_ms": 33397,
+        "url": "https://arxiv.org/abs/2609.36982"
+      }
+    },
+    {
+      "chapter": {
+        "title": "Patterns this week and sign-off",
+        "start_time_ms": 301295
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 302295,
+        "duration_ms": 19160,
+        "url": "https://hygiene-chancellor-ordinance-rivers.trycloudflare.com/episodes/2026-09-30/"
+      }
+    }
+  ]
+}
