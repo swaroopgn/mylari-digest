@@ -210,7 +210,8 @@ def cmd_build(args):
 
 # ---------------------------------------------------------------- deploy (GitHub Pages)
 DEPLOY = ROOT / ".deploy"          # local checkout of the gh-pages branch (generated output only)
-GIT_ID = ["-c", "user.name=swaroopgn", "-c", "user.email=1071795+swaroopgn@users.noreply.github.com"]
+GIT_ID = ["-c", "user.name=swaroopgn", "-c", "user.email=1071795+swaroopgn@users.noreply.github.com",
+          "-c", "credential.https://github.com.helper=", "-c", "credential.https://github.com.helper=!gh auth git-credential"]
 
 
 def git(*a, cwd=ROOT, check=True):
