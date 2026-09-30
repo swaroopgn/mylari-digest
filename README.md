@@ -22,24 +22,36 @@ spotify_publish.py  creates the Spotify show once, uploads episode (private), pu
 site/            GENERATED — don't edit
 ```
 
-## Adding a weekly edition
-1. Research; write `episodes/<date>/episode.json`, `segments.json` (≈700–750 words total; no URLs,
-   spell out acronyms on first use), and `post.md` (every item: title, authors/org, date, URL; real numbers only).
-   Add any new tricky words to `pronunciations` in show.json. Bump `number`.
-2. `python3 build.py tts <date>` → check the printed duration (target 4.5–5.5 min; tweak `kokoro.speed`).
-3. `python3 build.py build --base-url <PUBLIC_BASE_URL>` (feed URLs must be absolute).
-4. Host: serve `site/` (see below), then curl the post page, MP3 and feed.xml over the public URL.
-5. `python3 spotify_publish.py <date> --post-url <PUBLIC_BASE_URL>/episodes/<date>/`
-   (`--dry-run` first to inspect description.html / timeline.json). It writes spotify_url into episode.json.
-6. Re-run step 3 so the post page shows the "Listen on Spotify" link; redeploy.
+## Live
+- Site: https://swaroopgn.github.io/mylari-digest/  (GitHub Pages, `gh-pages` branch of swaroopgn/mylari-digest)
+- Podcast RSS: https://swaroopgn.github.io/mylari-digest/feed.xml
+- Spotify: saved (private) into show `spotify_show_uri` in show.json
 
-## Hosting (current: temporary)
+## Adding a weekly edition
+1. Research; write `episodes/<date>/episode.json` (bump `number`, set `title`, `spotify_title`, `date`, `summary`),
+   `segments.json` (one segment per chapter, ~700-750 words total, no URLs read aloud, acronyms spelled out on
+   first use, `sources` per segment) and `post.md` (every item: title, authors/org, date, URL; real numbers only).
+   Add tricky words to `pronunciations` in show.json.
+2. Run the whole pipeline:
+   ```
+   ./publish_week.sh <date>            # tts -> build+push Pages -> wait live -> Spotify upload+timeline+READY -> re-push with Spotify link
+   ./publish_week.sh <date> --skip-tts # if audio.mp3 is already final
+   ```
+   Check the printed duration after tts (target 4.5-5.5 min; tweak `kokoro.speed` in show.json).
+
+Individual steps:
 ```
-setsid nohup python3 serve.py 8787 >/tmp/mylari_http.log 2>&1 &
-nohup ~/.local/bin/cloudflared tunnel --no-autoupdate --url http://127.0.0.1:8787 >/tmp/mylari_cf.log 2>&1 &
-grep -o 'https://[a-z0-9-]*\.trycloudflare\.com' /tmp/mylari_cf.log
+python3 build.py tts <date>                 # Kokoro narration -> audio.mp3, chapters.json, script.txt
+python3 build.py build                      # render site/ locally (base_url from show.json)
+python3 build.py deploy                     # build + push sources to main + site/ to gh-pages
+python3 spotify_publish.py <date> --post-url <base>/episodes/<date>/ [--dry-run]
+python3 serve.py 8787                       # local preview of site/ (Range-capable)
 ```
-Quick-tunnel URLs are random and die when the process/box restarts, so every rebuild with a new URL changes
-the feed's enclosure URLs. For a permanent home (needed before submitting feed.xml to Spotify for Creators),
-push `site/` to GitHub Pages / Cloudflare Pages / Netlify and rebuild with that base URL. Also set
-`owner_email` in show.json (Spotify verifies feed ownership by emailing `itunes:owner/itunes:email`).
+
+## Notes
+- `spotify_publish.py` uploads exactly once. If a call errors ambiguously (e.g. HTTP 504) it checks the show for an
+  episode with the same title before doing anything else, and refuses to upload if one already exists.
+  Spotify metadata is immutable; to change title/description, delete the episode and re-run.
+- Git pushes use `gh auth git-credential` per command (no global git config changes). Commits are authored as
+  swaroopgn (noreply address).
+- Before submitting feed.xml to Spotify for Creators / Apple, set `owner_email` in show.json (feed ownership check).

@@ -139,7 +139,7 @@ def cmd_build(args):
                 rows.append(f"<li><code>{t // 60}:{t % 60:02d}</code> {html.escape(c['title'])}{src}</li>")
             chap_html = "<details open><summary><strong>Chapters</strong></summary><ul>" + "".join(rows) + "</ul></details>"
         spot = ""
-        if ep.get("spotify_url"):
+        if ep.get("spotify_url") and ep.get("spotify_ready"):   # only link once Spotify reports READY
             spot = f' · <a href="{html.escape(ep["spotify_url"])}">Listen on Spotify</a>'
         body = f"""<p class="meta">Episode {ep['number']} · {date_h} · {hms(dur)[3:]} min</p>
 <h1>{html.escape(ep['title'])}</h1>

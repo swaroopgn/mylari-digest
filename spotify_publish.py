@@ -16,15 +16,37 @@ ROOT = Path(__file__).resolve().parent
 CLI = str(Path.home() / ".local/bin/save-to-spotify")
 
 
-def cli(*args):
+class CLIError(Exception):
+    pass
+
+
+def cli(*args, soft=False):
+    """Run the CLI in JSON mode. soft=True raises CLIError instead of exiting (for ambiguous-failure handling)."""
     r = subprocess.run([CLI, "--json", *args], capture_output=True, text=True)
     try:
         out = json.loads(r.stdout)
     except Exception:
-        sys.exit(f"CLI non-JSON output ({r.returncode}): {r.stdout}\n{r.stderr}")
+        out = {"error": f"non-JSON output ({r.returncode}): {r.stdout} {r.stderr}"}
     if r.returncode != 0 or (isinstance(out, dict) and out.get("error")):
+        if soft:
+            raise CLIError(str(out))
         sys.exit(f"CLI error: {out} {r.stderr}")
     return out
+
+
+def find_existing(show_uri, key, value, tries=4):
+    """After an ambiguous error (e.g. 504), look for the object the call may have created anyway."""
+    for _ in range(tries):
+        time.sleep(15)
+        if key == "episode":
+            for e in cli("episodes", "--show-id", show_uri).get("episodes", []):
+                if e.get("title") == value:
+                    return e.get("episode_uri") or e.get("uri")
+        else:
+            for sh in cli("shows").get("shows", []):
+                if sh.get("title") == value:
+                    return sh.get("show_uri")
+    return None
 
 
 def ts(ms):
@@ -81,23 +103,53 @@ def main():
         sys.exit(f"episode already saved: {ep['spotify_episode_uri']} (delete it first to re-save)")
     cover = str(ROOT / "cover.jpg")
     if not show.get("spotify_show_uri"):
-        out = cli("shows", "create", "--title", show["title"], "--summary", show["description"], "--image", cover,
-                  "--language", show.get("language", "en"))
-        show["spotify_show_uri"] = out.get("show_uri") or out.get("uri") or out.get("id")
+        try:
+            out = cli("shows", "create", "--title", show["title"], "--summary", show["description"], "--image", cover,
+                      "--language", show.get("language", "en"), soft=True)
+            show["spotify_show_uri"] = out.get("show_uri") or out.get("uri") or out.get("id")
+        except CLIError as e:
+            print("show create errored, checking whether it exists anyway:", e)
+            show["spotify_show_uri"] = find_existing(None, "show", show["title"]) or sys.exit("show not created")
+            out = {"show_uri": show["spotify_show_uri"], "note": "found after ambiguous error"}
         show_path.write_text(json.dumps(show, indent=2, ensure_ascii=False))
         print("created show:", out)
-    out = cli("upload", str(d / "audio.mp3"), "--title", ep.get("spotify_title", ep["title"]), "--summary", desc,
-              "--show-id", show["spotify_show_uri"], "--image", cover, "--language", show.get("language", "en"))
-    uri = out["episode_uri"]; eid = uri.split(":")[-1]
+    title = ep.get("spotify_title", ep["title"])
+    existing = [e for e in cli("episodes", "--show-id", show["spotify_show_uri"]).get("episodes", []) if e.get("title") == title]
+    if existing:
+        sys.exit(f"an episode titled {title!r} already exists in the show: {existing[0]} - not uploading again")
+    try:   # upload exactly once; never blind-retry
+        out = cli("upload", str(d / "audio.mp3"), "--title", title, "--summary", desc,
+                  "--show-id", show["spotify_show_uri"], "--image", cover, "--language", show.get("language", "en"), soft=True)
+        uri = out["episode_uri"]
+    except CLIError as e:
+        print("upload errored, checking whether the episode exists anyway:", e, flush=True)
+        uri = find_existing(show["spotify_show_uri"], "episode", title)
+        if not uri:
+            sys.exit("upload failed and no episode found - check the show manually before retrying")
+        out = {"episode_uri": uri, "note": "found after ambiguous error"}
+    eid = uri.split(":")[-1]
     ep["spotify_episode_uri"] = uri; ep["spotify_url"] = f"https://open.spotify.com/episode/{eid}"
     (d / "episode.json").write_text(json.dumps(ep, indent=2, ensure_ascii=False))
     print("uploaded:", out)
-    print("timeline set:", cli("timeline", "set", "--episode-id", uri, "--from-file", str(d / "timeline.json")))
+    try:   # timeline set is an idempotent PUT, so one retry is safe
+        print("timeline set:", cli("timeline", "set", "--episode-id", uri, "--from-file", str(d / "timeline.json"), soft=True))
+    except CLIError as e:
+        print("timeline set errored, retrying once:", e); time.sleep(10)
+        print("timeline set:", cli("timeline", "set", "--episode-id", uri, "--from-file", str(d / "timeline.json")))
     for _ in range(60):
-        st = cli("episodes", "status", uri)
+        try:
+            st = cli("episodes", "status", uri, soft=True)
+        except CLIError as e:
+            print("status errored (will retry):", e); time.sleep(10); continue
         print("status:", st.get("readiness"), flush=True)
-        if st.get("readiness") in ("READY", "FAILED"):
+        if st.get("readiness") == "READY":
+            ep["spotify_ready"] = True
+            (d / "episode.json").write_text(json.dumps(ep, indent=2, ensure_ascii=False))
             break
+        if st.get("readiness") == "FAILED":
+            sys.exit("episode processing FAILED")
+    else:
+        sys.exit("episode not READY after ~10 min - check `save-to-spotify --json shows get <show>` status")
         time.sleep(10)
 
 
