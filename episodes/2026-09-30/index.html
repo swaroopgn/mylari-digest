@@ -1,0 +1,107 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Distill, then win on systems (test edition, 30 Sep 2026) · Small Models, Real Systems</title>
+<link rel="stylesheet" href="../../style.css">
+<link rel="alternate" type="application/rss+xml" title="Small Models, Real Systems" href="https://swaroopgn.github.io/mylari-digest/feed.xml">
+<meta property="og:title" content="Distill, then win on systems (test edition, 30 Sep 2026) · Small Models, Real Systems"><meta property="og:image" content="https://swaroopgn.github.io/mylari-digest/cover.jpg">
+</head><body><header class="site"><div class="wrap"><a href="../../index.html">Small Models, Real Systems</a>
+<span class="tag">A weekly research digest by Mylari</span></div></header>
+<main class="wrap"><p class="meta">Episode 1 · Wednesday 30 September 2026 · 05:22 min</p>
+<h1>Distill, then win on systems (test edition, 30 Sep 2026)</h1>
+<div class="player"><audio controls preload="metadata" src="../../audio/small-models-real-systems-2026-09-30.mp3"></audio>
+<div class="meta"><a href="../../audio/small-models-real-systems-2026-09-30.mp3">Download MP3</a> · <a href="../../feed.xml">Subscribe (RSS)</a></div></div>
+<details open><summary><strong>Chapters</strong></summary><ul><li><code>0:00</code> Introduction</li><li><code>0:32</code> Amazon - parallel-decoding attribute extraction · <a href="https://arxiv.org/abs/2609.09716">source</a></li><li><code>1:43</code> AliExpress - correct-to-predict multimodal extraction · <a href="https://arxiv.org/abs/2609.34383">source</a></li><li><code>2:50</code> AWS - SFT + GRPO product tagging · <a href="https://aws.amazon.com/blogs/machine-learning/build-an-ai-powered-product-tagging-system-with-amazon-sagemaker-serverless-model-customization/">source</a></li><li><code>3:38</code> Indeed - single-token scoring in production · <a href="https://arxiv.org/abs/2609.18188">source</a></li><li><code>4:25</code> SRJudge - shortlist, reason, judge · <a href="https://arxiv.org/abs/2609.36982">source</a></li><li><code>5:01</code> Patterns this week and sign-off</li></ul></details>
+<p><em>Test edition. Window: roughly 16–30 September 2026; one item (Amazon, 9 Sep, revised 11 Sep) is slightly older and labelled as such. Every number below comes from the linked source.</em></p>
+<p>This week's theme is consistent across a marketplace, a cloud vendor, a job platform and an academic lab: <strong>distill or fine-tune a small model for the narrow task, then get your wins from the system around it</strong> — decoding tricks, reward design, shortlists, and boring-but-vital serving hygiene. Five items made the cut.</p>
+<h2>1. Scaling E-Commerce Attribute Extraction with Parallel Decoding</h2>
+<p><strong>Nikhita Vedula, Dushyanta Dhyani, Bryan Wang, Shervin Malmasi (Amazon)</strong> · arXiv, submitted 9 Sep 2026, v2 11 Sep 2026 <em>(slightly older than the window)</em> · <a href="https://arxiv.org/abs/2609.09716">arXiv:2609.09716</a></p>
+<p><strong>What they did.</strong> A two-stage catalog-enrichment pipeline. Stage 1 uses a large foundation LLM (Claude) to discover a compact, ranked schema of <em>purchase-discriminative</em> attributes per category (up to 20), then standardizes near-duplicate attributes across categories. Stage 2 extracts the values with a fine-tuned <strong>Qwen3-4B</strong>.</p>
+<p><strong>Method.</strong> Distillation: 100K product–schema examples labelled by Claude Sonnet 4 as structured JSON (with nulls for absent values). The student is trained for <strong>Hyper-Parallel Decoding (HPD)</strong> — since attribute values are treated as conditionally independent, all value slots are decoded simultaneously using special tokens, block IDs and a custom 2D attention mask. Optional constrained decoding (logit masks for categorical values, regex for number+unit) changed fewer than 1% of values.</p>
+<p><strong>Evaluation.</strong> A proprietary catalog of 30M+ products across a few thousand categories; LLM judge (Claude Sonnet 4.5) for schema and value quality, a 500-product human evaluation, a five-run determinism check, and a cost/throughput comparison.</p>
+<p><strong>Key results.</strong>
+- Schema discovery: 89.6% of attributes judged correct/relevant; 6.4% too vague/specific; 4.0% irrelevant.
+- Extraction: ~85% accuracy for both Qwen3-4B and Qwen3-8B, on par with or slightly above the teacher; humans also rated 85% correct, and LLM judge and humans agreed on 91% of values. Qwen3-4B was slightly <em>better</em> than 8B.
+- Throughput: 159K products/hour/instance with HPD vs ~18K with standard autoregressive decoding on the same model.
+- Cost for 30M products: ~$5K (HPD, 36 hours on 5 instances) vs ~$46K (autoregressive) vs ~$63K (foundation LLM batch API) — a 92% reduction. Fine-tuning took 8 hours on one 8×A100 instance (~$350).
+- ~93% of outputs identical or semantically equivalent across five runs.</p>
+<p><strong>Production takeaway.</strong> Distillation closed the quality gap; <em>decoding</em> is what made the economics work (a 9× throughput gap between HPD and autoregressive on the same 4B model). They cap model size at 8B because bigger models cut per-GPU batch capacity for daily incremental and monthly full refreshes, and they version schemas per refresh cycle. Stated limits: text-only (attributes that appear only in images are missed) and English-only so far.</p>
+<h2>2. Correcting to Predict: Pseudo-Value Correction for Multimodal Attribute Value Extraction</h2>
+<p><strong>Junhao Zhang, Feiran Hu, Xiao Hu, Baoliang Cui, Xiaoyi Zeng (Alibaba International Digital Commerce Group)</strong> · arXiv, 28 Sep 2026 · CIKM '26 · <a href="https://arxiv.org/abs/2609.34383">arXiv:2609.34383</a></p>
+<p><strong>What they did.</strong> Multimodal attribute extraction for <em>implicit</em> attributes, where the value depends on subtle image-plus-text cues and similar values are easily confused.</p>
+<p><strong>Method.</strong> C2P reframes extraction as <em>correcting</em> a pseudo-value. <strong>Qwen2.5-VL-7B-Instruct</strong> is fine-tuned with LoRA; during training each example comes with a candidate value — most usefully the top-3 values retrieved from similar products via a GME-Qwen2-VL-2B embedding — and the model learns to verify or fix it against the evidence. A self-consistency refinement (SCR) stage mines samples whose predictions flip under different pseudo-values (roughly 5% and 4% of the training set in two iterations, heavily enriched for hard attributes) and retrains on them with 50% replay. At inference a <em>fixed placeholder</em> stands in for retrieval, so serving is single-pass.</p>
+<p><strong>Evaluation.</strong> Micro-F1 on the public ImplicitAVE benchmark and an AliExpress industrial set (371 categories, 1,267 attributes); comparisons to GPT-4V/4o/o1 zero-shot, MADIAVE, MICE, and direct SFT of the same backbone; serving throughput; and a live A/B test.</p>
+<p><strong>Key results.</strong>
+- Offline: C2P-SCR reaches 88.87 Micro-F1 on ImplicitAVE and 91.39 on the industrial set; +1.68 points overall over direct SFT of the same backbone, and +2.10 over GPT-4V zero-shot.
+- Serving (single L20 GPU): 4.77 QPS for C2P vs 5.18 for direct generation vs 1.45 for RAG-top3.
+- 7-day online A/B on 10% of traffic vs the production Qwen2.5-VL SFT model: +22.6% deployable category–attribute pairs, +9.8% GMV share of products with complete core attributes, seller adoption 83% → 85%, 37.2% more relevant search filter options, +15.6% filter usage and +3.3% CTR in filtered sessions.</p>
+<p><strong>Production takeaway.</strong> Retrieved candidates help most as <em>training-time hypotheses to verify</em>, not as prompt context at serving time — you get most of the retrieval benefit without paying the more-than-3× throughput hit of RAG at serving time. The "deployable pairs" metric is a useful framing: better accuracy on hard attributes expands how much of the catalog clears a quality bar.</p>
+<h2>3. Build an AI-powered product tagging system with Amazon SageMaker serverless model customization</h2>
+<p><strong>Linpo Guo, Ray Wang, Josh Chiu, Kanwaljit Khurmi (AWS)</strong> · AWS Machine Learning Blog, 15 Sep 2026 · <a href="https://aws.amazon.com/blogs/machine-learning/build-an-ai-powered-product-tagging-system-with-amazon-sagemaker-serverless-model-customization/">aws.amazon.com</a></p>
+<p><strong>What they did.</strong> An end-to-end walkthrough for tagging retail products into a nine-category schema with <strong>Qwen3-8B</strong>, using SFT (LoRA rank 16, 3 epochs) followed by RL with verifiable rewards via GRPO (8 rollouts per prompt, KL-regularized to the SFT model), then batch serving on an asynchronous endpoint (ml.g6.2xlarge, vLLM).</p>
+<p><strong>Method.</strong> The reward is deterministic — format check plus fuzzy matching at a 0.5 threshold: <em>Overall = 0.30·recall + 0.30·precision + 0.30·accuracy + 0.05·match quality + 0.05·formatting</em>, with a progressive schedule that emphasizes recall early and precision later.</p>
+<p><strong>Evaluation.</strong> Held-out tagging metrics on the public Amazon Sales Dataset from Kaggle (more than 1,000 product records — so treat this as a recipe demo, not a benchmark).</p>
+<p><strong>Key results.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Overall</th>
+<th>Recall</th>
+<th>Precision</th>
+<th>Accuracy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Baseline</td>
+<td>0.354</td>
+<td>0.327</td>
+<td>0.397</td>
+<td>0.327</td>
+</tr>
+<tr>
+<td>SFT</td>
+<td>0.6827</td>
+<td>0.6689</td>
+<td>0.652</td>
+<td>0.6689</td>
+</tr>
+<tr>
+<td>GRPO</td>
+<td>0.6941</td>
+<td>0.703</td>
+<td>0.638</td>
+<td>0.686</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Production takeaway.</strong> Refreshingly honest: SFT does the heavy lifting; GRPO adds ~1 point overall and shifts the model toward recall at a small precision cost. RLVR is a way to make a business trade-off (missing tags vs extra tags) explicit in the reward — flip the weights if spurious tags hurt you more. The authors also note that tag metrics aren't business metrics; validate with manual-correction rate, filter coverage and completeness.</p>
+<h2>4. Single-Token Expected-Value Scoring for Cold-Start Candidate Ranking</h2>
+<p><strong>Qihang Wang, Jinwei Tan, Mengyuan Shi, Mayank Sharma, Shuai Zhao, Fuxian Li, Ryan Yan, Alexander P. Kreuzer, Mohit Jain, Dheeraj Toshniwal, Manoj Seethamsetty (Indeed)</strong> · arXiv, 16 Sep 2026 · RecSys in HR '26 workshop · <a href="https://arxiv.org/abs/2609.18188">arXiv:2609.18188</a></p>
+<p><strong>What they did.</strong> Ranking isn't metadata generation, but the recipe transfers directly to any graded classification or relevance-labelling task. With only a few hundred thousand LLM-generated ordinal labels (no big interaction logs), they fine-tune a small model to emit a single grade token 1–5 and read the score as the <strong>expected value of the first-token distribution</strong>.</p>
+<p><strong>Method.</strong> A hybrid ordinal loss (MSE to preserve ordinal distance + cross-entropy to sharpen class boundaries). One decoding step means no output parsing and far less variance than generating JSON-then-score. Served on self-hosted vLLM: <strong>Qwen3-8B base with per-variant LoRA adapters</strong>, fp8 weights and KV cache, continuous batching and prefix caching.</p>
+<p><strong>Evaluation.</strong> Offline NDCG@10 and low-relevance rate vs a heuristic baseline and zero-shot LLMs; data-scaling study; matched-data open vs proprietary backbone comparison; end-to-end simulation; employer-randomized online A/B.</p>
+<p><strong>Key results.</strong>
+- Simulation: +54.2% jobseeker NDCG@10 and −46.7% low-relevance rate.
+- Online: employer low-relevance −27.3%, employer keep rate +7.07%.
+- Data: for the GPT-4.1-mini variant, most quality is reached by 20K labels, with small gains from 20K to 50K. At matched 50K labels, fine-tuned GPT-4.1-mini beat fine-tuned Qwen3-8B on every metric; scaling Qwen3-8B to 200K pairs recovered much of the gap.
+- Reliability SLOs over a rolling 7 days: scoring availability 99.95% observed (target 99%), usable-score rate 99.8%.</p>
+<p><strong>Production takeaway.</strong> A strong template for "LLM as classifier" in production: constrain to one token, fine-tune for calibrated distributions, and instrument everything — every call tagged <code>scored / no_logprobs / parse_reject / call_error</code> with graceful fallback to a heuristic, drift monitoring on score and logit distributions, and a 48-hour shadow phase before rollout.</p>
+<h2>5. SRJudge: Selective Reasoning for Fine-Grained Knowledge Concept Tagging</h2>
+<p><strong>Zhiwei Yang, Jiahua Yang, Huiru Lin, Xing Chen, Quanlong Guan (Jinan University)</strong> · arXiv, 29 Sep 2026 · <a href="https://arxiv.org/abs/2609.36982">arXiv:2609.36982</a> · <a href="https://github.com/Nicozwy/SRJudge">code</a></p>
+<p><strong>What they did.</strong> Tagging educational exercises with one of 72–155 fine-grained concepts (three secondary-school datasets, grades 7–12: math, biology, physics; the latter two newly released).</p>
+<p><strong>Method.</strong> Select → Reason → Judge. A fine-tuned (and continued-pretrained) BERT <strong>Selector</strong> narrows candidates to a top-K shortlist; a lightweight LLM <strong>Reasoner</strong> (e.g. Qwen2.5-1.5B-Instruct) is trained with GRPO using format, accuracy and a dynamic <em>position</em> reward (so it doesn't just copy the Selector's top-1), plus pruning of low-advantage completions; a frozen larger LLM <strong>Judger</strong> (e.g. Qwen3-32B) makes the final call.</p>
+<p><strong>Evaluation.</strong> Accuracy / precision / recall / macro-F1 vs fine-tuned BERT/RoBERTa-style encoders, prompted and fine-tuned LLMs, and task-specific baselines; ablations of each stage, reward and pruning rate.</p>
+<p><strong>Key results.</strong>
+- The motivating gap: fine-tuned Chinese-BERT top-1 accuracy of 0.72 / 0.72 / 0.63 vs top-5 hit rate of 0.91 / 0.94 / 0.92 on math / biology / physics.
+- SRJudge F1: 0.7602 (math), 0.6987 (biology), 0.6643 (physics), best among compared methods. Adding the Reasoner on top of the Selector adds 2.02 / 0.96 / 1.92 F1 points. Higher pruning rates consistently cut RL training time.</p>
+<p><strong>Production takeaway.</strong> For large label spaces (taxonomy leaves, concept tags), a cheap encoder that gets the answer <em>into the top-5</em> plus a small reasoning model over the shortlist is a pragmatic architecture. Caveat: the final stage uses a 32B judge, so the full stack is not "small" end-to-end — it's a cost/accuracy dial.</p>
+<h2>Also noted</h2>
+<ul>
+<li><strong>Glyph</strong> (Kudriavtsev, Rafi, Sundaram; arXiv, 9 Sep 2026, older) — a production multi-agent system for column descriptions and 275-leaf sensitivity-ontology tagging of enterprise data catalogs; a fine-tuned 6-layer MiniLM contrastive encoder lifts same-tag retrieval NDCG@10 from 0.55 to 0.92. <a href="https://arxiv.org/abs/2609.10430">arXiv:2609.10430</a></li>
+</ul>
+<h2>Patterns this week</h2>
+<p><strong>Distill, then win on systems.</strong> Amazon's 4B student matched its teacher, but the 92% cost cut came from parallel decoding; AliExpress kept retrieval's accuracy benefit while dropping retrieval at serving time; Indeed collapsed generation to a single token. <strong>Bigger isn't automatically better under a throughput budget</strong> — Amazon's 8B slightly trailed its 4B. <strong>RL is a trade-off knob, not a multiplier</strong>: AWS's GRPO stage moved recall up and precision down by design, on top of an SFT stage that did most of the work. <strong>Shortlists make small models reliable</strong> on big label spaces (SRJudge's top-5 vs top-1 gap). And the production write-ups converge on the same hygiene: deterministic validation and re-processing of bad outputs, versioned schemas, outcome-tagged calls with fallbacks, drift monitoring and shadow launches. Evaluation is increasingly "LLM judge calibrated against a human sample" (Amazon: 91% judge–human agreement) plus online A/B on business metrics.</p>
+<details><summary><strong>Episode transcript</strong></summary><p>Hi, and welcome to Small Models, Real Systems, the weekly research digest by Mylari. This is a test edition, dated Wednesday the thirtieth of September, 2026. Each week we pick new papers and engineering write-ups on fine-tuning small language models, roughly under ten billion parameters, for metadata generation and content understanding. This week: five items, and a clear theme. Teams distill a big model into a small one, then spend their cleverness on decoding, rewards, and serving.</p><p>Let&#x27;s start at Amazon. In a paper first posted on the ninth of September, slightly older than our usual window, Nikhita Vedula and colleagues describe a two-stage pipeline for product attribute extraction. First, a large foundation model, Claude, discovers a compact, ranked schema of purchase-deciding attributes for each product category. Then a fine-tuned Qwen3 model with four billion parameters extracts the values. It learns from a hundred thousand examples labeled by Claude, which is classic distillation. The twist is Hyper-Parallel Decoding. Because attribute values are mostly independent, the model decodes them all at once instead of one long token chain. The result: about eighty-five percent extraction accuracy, confirmed by human judges and on par with the teacher. Throughput is a hundred and fifty-nine thousand products per hour per instance, versus eighteen thousand with normal decoding. For thirty million products, that&#x27;s roughly five thousand dollars, against sixty-three thousand through the foundation model&#x27;s batch service: a ninety-two percent cost cut. One nice detail: the eight-billion model did slightly worse than the four-billion one.</p><p>Next, AliExpress. A paper from Alibaba International, posted on the twenty-eighth, tackles the hard part of attribute extraction: implicit values that need both the image and the text. Their method, called Correcting to Predict, fine-tunes the seven-billion-parameter Qwen2.5 vision-language model with Low-Rank Adaptation, or LoRA, but frames the task as correction. During training, it sees a plausible but possibly wrong value retrieved from similar products, and learns to fix it from the evidence. At inference, a fixed placeholder replaces retrieval, so serving stays single-pass. It reaches a micro F1 of eighty-eight point nine on the public ImplicitAVE benchmark, and keeps throughput close to a plain fine-tuned model: four point eight versus five point two queries per second on one GPU, while retrieval-augmented prompting drops to about one and a half. In a seven-day online test, deployable category and attribute pairs grew by twenty-two point six percent, and search filter usage rose by fifteen point six percent.</p><p>Third, a hands-on walkthrough from Amazon Web Services, published on the fifteenth. The authors tag retail products into a nine-field schema by fine-tuning Qwen3 eight billion, first with supervised fine-tuning, then with reinforcement learning from verifiable rewards, using Group Relative Policy Optimization, or GRPO. The reward is deterministic: format checks plus fuzzy tag matching, with a schedule that favors recall early and precision later. Supervised fine-tuning did the heavy lifting, taking the overall score from zero point three five to zero point six eight. GRPO then added only about one more point, trading a little precision for recall. The takeaway: here, reinforcement learning is a dial for your business trade-off, not a magic multiplier.</p><p>Fourth, Indeed. In a paper from the sixteenth, they turn candidate ranking into a single-token classification. The model outputs a grade from one to five, and the score is the expected value over those five token probabilities. No output parsing, one decoding step, and far less run-to-run variance. They fine-tune with a loss that mixes mean squared error and cross-entropy, and serve Qwen3 eight billion with separate LoRA adapters per variant, in eight-bit floating point. Online, low-relevance results on the employer side fell by twenty-seven point three percent. The production section is the real gift: outcome-tagged calls, a ninety-nine point eight percent usable-score rate, drift monitoring on logit distributions, and a forty-eight-hour shadow phase for new models.</p><p>Finally, SRJudge, from Jinan University, posted just yesterday. It tags educational exercises with fine-grained concepts, from up to a hundred and fifty-five candidates, in three stages. A fine-tuned BERT selector narrows the list to five. A small Qwen model, one and a half billion parameters and trained with GRPO, reasons over that shortlist. Then a larger model judges. The key insight is a gap: BERT&#x27;s top-one accuracy sits between sixty-three and seventy-two percent, but its top-five hit rate is above ninety-one.</p><p>So, the patterns this week. Distill from a frontier teacher, then win on systems: parallel decoding, single tokens, placeholders instead of retrieval. Treat reward shaping as a trade-off knob. And use shortlists to keep small models reliable. Links and numbers are in the companion post. Thanks for listening, and see you next week.</p></details></main>
+<footer class="wrap">Small Models, Real Systems · by Mylari ·
+<a href="../../feed.xml">Podcast RSS feed</a> · Audio is synthetic narration (neural TTS).</footer></body></html>

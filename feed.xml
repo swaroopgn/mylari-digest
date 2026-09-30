@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:podcast="https://podcastindex.org/namespace/1.0">
+  <channel>
+    <title>Small Models, Real Systems</title>
+    <link>https://swaroopgn.github.io/mylari-digest/</link>
+    <atom:link href="https://swaroopgn.github.io/mylari-digest/feed.xml" rel="self" type="application/rss+xml"/>
+    <description>A weekly ~5-minute research digest on fine-tuning small language models (LoRA/QLoRA/PEFT, distillation, instruction and structured-output tuning) for metadata generation and content-understanding systems: tagging, attribute extraction, taxonomy classification, moderation and retrieval enrichment. Practical methods, evaluation, and production lessons. Produced by Mylari.</description>
+    <language>en</language>
+    <copyright>© 2026 Mylari</copyright>
+    <lastBuildDate>Wed, 30 Sep 2026 18:00:00 +0200</lastBuildDate>
+    <image><url>https://swaroopgn.github.io/mylari-digest/cover.jpg</url><title>Small Models, Real Systems</title><link>https://swaroopgn.github.io/mylari-digest/</link></image>
+    <itunes:author>Mylari</itunes:author>
+    <itunes:summary>A weekly ~5-minute research digest on fine-tuning small language models (LoRA/QLoRA/PEFT, distillation, instruction and structured-output tuning) for metadata generation and content-understanding systems: tagging, attribute extraction, taxonomy classification, moderation and retrieval enrichment. Practical methods, evaluation, and production lessons. Produced by Mylari.</itunes:summary>
+    <itunes:subtitle>A weekly research digest by Mylari</itunes:subtitle>
+    <itunes:image href="https://swaroopgn.github.io/mylari-digest/cover.jpg"/>
+    <itunes:category text="Technology"/>
+    <itunes:explicit>false</itunes:explicit>
+    <itunes:type>episodic</itunes:type>
+    <itunes:owner><itunes:name>Mylari</itunes:name></itunes:owner>
+    <podcast:locked>no</podcast:locked>
+    <item>
+      <title>Distill, then win on systems (test edition, 30 Sep 2026)</title>
+      <description>Amazon's parallel-decoding attribute extractor, AliExpress's correct-to-predict multimodal extraction, an AWS SFT+GRPO tagging walkthrough, Indeed's single-token scoring in production, and SRJudge's shortlist-then-reason concept tagging. Show notes and sources: https://swaroopgn.github.io/mylari-digest/episodes/2026-09-30/</description>
+      <content:encoded><![CDATA[<p>Amazon&#x27;s parallel-decoding attribute extractor, AliExpress&#x27;s correct-to-predict multimodal extraction, an AWS SFT+GRPO tagging walkthrough, Indeed&#x27;s single-token scoring in production, and SRJudge&#x27;s shortlist-then-reason concept tagging.</p><p>Show notes and all source links: <a href="https://swaroopgn.github.io/mylari-digest/episodes/2026-09-30/">https://swaroopgn.github.io/mylari-digest/episodes/2026-09-30/</a></p>]]></content:encoded>
+      <link>https://swaroopgn.github.io/mylari-digest/episodes/2026-09-30/</link>
+      <guid isPermaLink="false">small-models-real-systems-2026-09-30</guid>
+      <pubDate>Wed, 30 Sep 2026 18:00:00 +0200</pubDate>
+      <enclosure url="https://swaroopgn.github.io/mylari-digest/audio/small-models-real-systems-2026-09-30.mp3" length="5159892" type="audio/mpeg"/>
+      <itunes:title>Distill, then win on systems (test edition, 30 Sep 2026)</itunes:title>
+      <itunes:summary>Amazon's parallel-decoding attribute extractor, AliExpress's correct-to-predict multimodal extraction, an AWS SFT+GRPO tagging walkthrough, Indeed's single-token scoring in production, and SRJudge's shortlist-then-reason concept tagging.</itunes:summary>
+      <itunes:duration>00:05:22</itunes:duration>
+      <itunes:episode>1</itunes:episode>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:image href="https://swaroopgn.github.io/mylari-digest/cover.jpg"/>
+    </item>
+  </channel>
+</rss>
