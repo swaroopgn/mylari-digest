@@ -25,10 +25,10 @@
       <link>https://swaroopgn.github.io/mylari-digest/episodes/2026-09-30/</link>
       <guid isPermaLink="false">small-models-real-systems-2026-09-30</guid>
       <pubDate>Wed, 30 Sep 2026 18:00:00 +0200</pubDate>
-      <enclosure url="https://swaroopgn.github.io/mylari-digest/audio/small-models-real-systems-2026-09-30.mp3" length="5159892" type="audio/mpeg"/>
+      <enclosure url="https://swaroopgn.github.io/mylari-digest/audio/small-models-real-systems-2026-09-30.mp3" length="5998763" type="audio/mpeg"/>
       <itunes:title>Distill, then win on systems (test edition, 30 Sep 2026)</itunes:title>
       <itunes:summary>Amazon's parallel-decoding attribute extractor, AliExpress's correct-to-predict multimodal extraction, an AWS SFT+GRPO tagging walkthrough, Indeed's single-token scoring in production, and SRJudge's shortlist-then-reason concept tagging.</itunes:summary>
-      <itunes:duration>00:05:22</itunes:duration>
+      <itunes:duration>00:06:15</itunes:duration>
       <itunes:episode>1</itunes:episode>
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:explicit>false</itunes:explicit>
