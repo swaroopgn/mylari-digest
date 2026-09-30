@@ -90,6 +90,7 @@ def build_assets(d, ep, show, post_url):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("slug"); ap.add_argument("--post-url", required=True); ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--poll-only", action="store_true", help="episode already uploaded: just poll status until READY")
     a = ap.parse_args()
     d = ROOT / "episodes" / a.slug
     show_path = ROOT / "show.json"
@@ -99,8 +100,10 @@ def main():
     print("description chars:", len(desc))
     if a.dry_run:
         return
+    if a.poll_only:
+        return poll(d, ep, ep["spotify_episode_uri"])
     if ep.get("spotify_episode_uri"):
-        sys.exit(f"episode already saved: {ep['spotify_episode_uri']} (delete it first to re-save)")
+        sys.exit(f"episode already saved: {ep['spotify_episode_uri']} (use --poll-only, or delete it first to re-save)")
     cover = str(ROOT / "cover.jpg")
     if not show.get("spotify_show_uri"):
         try:
@@ -136,6 +139,10 @@ def main():
     except CLIError as e:
         print("timeline set errored, retrying once:", e); time.sleep(10)
         print("timeline set:", cli("timeline", "set", "--episode-id", uri, "--from-file", str(d / "timeline.json")))
+    poll(d, ep, uri)
+
+
+def poll(d, ep, uri):
     for _ in range(60):
         try:
             st = cli("episodes", "status", uri, soft=True)
@@ -148,9 +155,10 @@ def main():
             break
         if st.get("readiness") == "FAILED":
             sys.exit("episode processing FAILED")
-    else:
-        sys.exit("episode not READY after ~10 min - check `save-to-spotify --json shows get <show>` status")
         time.sleep(10)
+    else:
+        sys.exit("episode not READY after ~10 min - re-run with --poll-only later; "
+                 "check `save-to-spotify --json shows get <show>` status")
 
 
 if __name__ == "__main__":
