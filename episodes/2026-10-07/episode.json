@@ -6,5 +6,8 @@
   "summary": "Walmart's DPO-tuned T5 for document expansion, a CPU-served distilled bi-encoder for resume matching, a frontier-annotated XLM-R privacy tagger, uniopen's fine-tuned Nova moderation on AWS, and Baszta's lesson in honest safety-classifier evaluation.",
   "audio": "audio.mp3",
   "voice": "ElevenLabs Daniel - Steady Broadcaster (eleven_v4)",
-  "spotify_title": "Small Models, Real Systems — 7 Oct 2026"
+  "spotify_title": "Small Models, Real Systems — 7 Oct 2026",
+  "spotify_episode_uri": "spotify:episode:1MoL1gbvDAkrDLOIDRfX5v",
+  "spotify_url": "https://open.spotify.com/episode/1MoL1gbvDAkrDLOIDRfX5v",
+  "spotify_ready": true
 }

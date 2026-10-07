@@ -1,0 +1,95 @@
+{
+  "items": [
+    {
+      "chapter": {
+        "title": "Introduction",
+        "start_time_ms": 0
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 1000,
+        "duration_ms": 29458,
+        "url": "https://swaroopgn.github.io/mylari-digest/episodes/2026-10-07/"
+      }
+    },
+    {
+      "chapter": {
+        "title": "Walmart - DPO-tuned query generation for document expansion",
+        "start_time_ms": 31458
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 32458,
+        "duration_ms": 54024,
+        "url": "https://arxiv.org/abs/2610.04352"
+      }
+    },
+    {
+      "chapter": {
+        "title": "BroutonLab & Curately - distilled per-dimension matching on CPU",
+        "start_time_ms": 87482
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 88482,
+        "duration_ms": 57602,
+        "url": "https://arxiv.org/abs/2610.03112"
+      }
+    },
+    {
+      "chapter": {
+        "title": "RWS Language Weaver - frontier-annotated multilingual privacy tagging",
+        "start_time_ms": 147084
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 148084,
+        "duration_ms": 54181,
+        "url": "https://arxiv.org/abs/2609.38630"
+      }
+    },
+    {
+      "chapter": {
+        "title": "uniopen on AWS - fine-tuned Nova moderation with release gates",
+        "start_time_ms": 203265
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 204265,
+        "duration_ms": 50105,
+        "url": "https://aws.amazon.com/blogs/machine-learning/how-uniopen-customized-amazon-nova-to-their-retail-moderation-policies-for-production-deployment/"
+      }
+    },
+    {
+      "chapter": {
+        "title": "Billennium - Baszta and honest safety-classifier evaluation",
+        "start_time_ms": 255370
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 256370,
+        "duration_ms": 42739,
+        "url": "https://arxiv.org/abs/2609.29266"
+      }
+    },
+    {
+      "chapter": {
+        "title": "Patterns this week and sign-off",
+        "start_time_ms": 300109
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 301109,
+        "duration_ms": 28392,
+        "url": "https://swaroopgn.github.io/mylari-digest/episodes/2026-10-07/"
+      }
+    }
+  ]
+}
