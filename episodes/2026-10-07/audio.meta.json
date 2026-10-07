@@ -1,0 +1,12 @@
+{
+  "engine": "elevenlabs",
+  "voice": "Daniel - Steady Broadcaster",
+  "voice_id": "onwK4e9ZLuTAKqWW03F9",
+  "model_id": "eleven_v4",
+  "character_cost": 541,
+  "text_characters": 4461,
+  "tempo": 1.0,
+  "file": "audio.mp3",
+  "duration_ms": 330501,
+  "rendered_at": "2026-10-07T07:47:20+0200"
+}

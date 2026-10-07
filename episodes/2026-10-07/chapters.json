@@ -1,0 +1,50 @@
+{
+  "duration_ms": 330501,
+  "chapters": [
+    {
+      "title": "Introduction",
+      "start_time_ms": 0,
+      "sources": []
+    },
+    {
+      "title": "Walmart - DPO-tuned query generation for document expansion",
+      "start_time_ms": 31458,
+      "sources": [
+        "https://arxiv.org/abs/2610.04352"
+      ]
+    },
+    {
+      "title": "BroutonLab & Curately - distilled per-dimension matching on CPU",
+      "start_time_ms": 87482,
+      "sources": [
+        "https://arxiv.org/abs/2610.03112"
+      ]
+    },
+    {
+      "title": "RWS Language Weaver - frontier-annotated multilingual privacy tagging",
+      "start_time_ms": 147084,
+      "sources": [
+        "https://arxiv.org/abs/2609.38630"
+      ]
+    },
+    {
+      "title": "uniopen on AWS - fine-tuned Nova moderation with release gates",
+      "start_time_ms": 203265,
+      "sources": [
+        "https://aws.amazon.com/blogs/machine-learning/how-uniopen-customized-amazon-nova-to-their-retail-moderation-policies-for-production-deployment/"
+      ]
+    },
+    {
+      "title": "Billennium - Baszta and honest safety-classifier evaluation",
+      "start_time_ms": 255370,
+      "sources": [
+        "https://arxiv.org/abs/2609.29266"
+      ]
+    },
+    {
+      "title": "Patterns this week and sign-off",
+      "start_time_ms": 300109,
+      "sources": []
+    }
+  ]
+}

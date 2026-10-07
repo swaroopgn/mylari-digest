@@ -1,0 +1,10 @@
+{
+  "slug": "2026-10-07",
+  "number": 2,
+  "title": "The big model labels, the small model serves (7 Oct 2026)",
+  "date": "2026-10-07T18:00:00+02:00",
+  "summary": "Walmart's DPO-tuned T5 for document expansion, a CPU-served distilled bi-encoder for resume matching, a frontier-annotated XLM-R privacy tagger, uniopen's fine-tuned Nova moderation on AWS, and Baszta's lesson in honest safety-classifier evaluation.",
+  "audio": "audio.mp3",
+  "voice": "ElevenLabs Daniel - Steady Broadcaster (eleven_v4)",
+  "spotify_title": "Small Models, Real Systems — 7 Oct 2026"
+}
