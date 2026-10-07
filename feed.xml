@@ -7,7 +7,7 @@
     <description>A weekly ~5-minute research digest on fine-tuning small language models (LoRA/QLoRA/PEFT, distillation, instruction and structured-output tuning) for metadata generation and content-understanding systems: tagging, attribute extraction, taxonomy classification, moderation and retrieval enrichment. Practical methods, evaluation, and production lessons. Produced by Mylari.</description>
     <language>en</language>
     <copyright>© 2026 Mylari</copyright>
-    <lastBuildDate>Wed, 30 Sep 2026 18:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 07 Oct 2026 18:00:00 +0200</lastBuildDate>
     <image><url>https://swaroopgn.github.io/mylari-digest/cover.jpg</url><title>Small Models, Real Systems</title><link>https://swaroopgn.github.io/mylari-digest/</link></image>
     <itunes:author>Mylari</itunes:author>
     <itunes:summary>A weekly ~5-minute research digest on fine-tuning small language models (LoRA/QLoRA/PEFT, distillation, instruction and structured-output tuning) for metadata generation and content-understanding systems: tagging, attribute extraction, taxonomy classification, moderation and retrieval enrichment. Practical methods, evaluation, and production lessons. Produced by Mylari.</itunes:summary>
@@ -18,6 +18,22 @@
     <itunes:type>episodic</itunes:type>
     <itunes:owner><itunes:name>Mylari</itunes:name></itunes:owner>
     <podcast:locked>no</podcast:locked>
+    <item>
+      <title>The big model labels, the small model serves (7 Oct 2026)</title>
+      <description>Walmart's DPO-tuned T5 for document expansion, a CPU-served distilled bi-encoder for resume matching, a frontier-annotated XLM-R privacy tagger, uniopen's fine-tuned Nova moderation on AWS, and Baszta's lesson in honest safety-classifier evaluation. Show notes and sources: https://swaroopgn.github.io/mylari-digest/episodes/2026-10-07/</description>
+      <content:encoded><![CDATA[<p>Walmart&#x27;s DPO-tuned T5 for document expansion, a CPU-served distilled bi-encoder for resume matching, a frontier-annotated XLM-R privacy tagger, uniopen&#x27;s fine-tuned Nova moderation on AWS, and Baszta&#x27;s lesson in honest safety-classifier evaluation.</p><p>Show notes and all source links: <a href="https://swaroopgn.github.io/mylari-digest/episodes/2026-10-07/">https://swaroopgn.github.io/mylari-digest/episodes/2026-10-07/</a></p>]]></content:encoded>
+      <link>https://swaroopgn.github.io/mylari-digest/episodes/2026-10-07/</link>
+      <guid isPermaLink="false">small-models-real-systems-2026-10-07</guid>
+      <pubDate>Wed, 07 Oct 2026 18:00:00 +0200</pubDate>
+      <enclosure url="https://swaroopgn.github.io/mylari-digest/audio/small-models-real-systems-2026-10-07.mp3" length="5288648" type="audio/mpeg"/>
+      <itunes:title>The big model labels, the small model serves (7 Oct 2026)</itunes:title>
+      <itunes:summary>Walmart's DPO-tuned T5 for document expansion, a CPU-served distilled bi-encoder for resume matching, a frontier-annotated XLM-R privacy tagger, uniopen's fine-tuned Nova moderation on AWS, and Baszta's lesson in honest safety-classifier evaluation.</itunes:summary>
+      <itunes:duration>00:05:31</itunes:duration>
+      <itunes:episode>2</itunes:episode>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:image href="https://swaroopgn.github.io/mylari-digest/cover.jpg"/>
+    </item>
     <item>
       <title>Distill, then win on systems (test edition, 30 Sep 2026)</title>
       <description>Amazon's parallel-decoding attribute extractor, AliExpress's correct-to-predict multimodal extraction, an AWS SFT+GRPO tagging walkthrough, Indeed's single-token scoring in production, and SRJudge's shortlist-then-reason concept tagging. Show notes and sources: https://swaroopgn.github.io/mylari-digest/episodes/2026-09-30/</description>
