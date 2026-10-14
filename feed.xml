@@ -7,7 +7,7 @@
     <description>A weekly ~5-minute research digest on fine-tuning small language models (LoRA/QLoRA/PEFT, distillation, instruction and structured-output tuning) for metadata generation and content-understanding systems: tagging, attribute extraction, taxonomy classification, moderation and retrieval enrichment. Practical methods, evaluation, and production lessons. Produced by Mylari.</description>
     <language>en</language>
     <copyright>© 2026 Mylari</copyright>
-    <lastBuildDate>Wed, 07 Oct 2026 18:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 14 Oct 2026 18:00:00 +0200</lastBuildDate>
     <image><url>https://swaroopgn.github.io/mylari-digest/cover.jpg</url><title>Small Models, Real Systems</title><link>https://swaroopgn.github.io/mylari-digest/</link></image>
     <itunes:author>Mylari</itunes:author>
     <itunes:summary>A weekly ~5-minute research digest on fine-tuning small language models (LoRA/QLoRA/PEFT, distillation, instruction and structured-output tuning) for metadata generation and content-understanding systems: tagging, attribute extraction, taxonomy classification, moderation and retrieval enrichment. Practical methods, evaluation, and production lessons. Produced by Mylari.</itunes:summary>
@@ -18,6 +18,22 @@
     <itunes:type>episodic</itunes:type>
     <itunes:owner><itunes:name>Mylari</itunes:name></itunes:owner>
     <podcast:locked>no</podcast:locked>
+    <item>
+      <title>Clean labels, checkable outputs, small students (14 Oct 2026)</title>
+      <description>Preply's 0.8B grammar annotator beating prompted frontier models, eBay's generative-vs-encoder students for topic tagging, Consultant's 350M job-title model on a CPU, Amazon's study of how serving settings change classifier predictions, and Enterpret's whole-tree checks for generated taxonomies. Show notes and sources: https://swaroopgn.github.io/mylari-digest/episodes/2026-10-14/</description>
+      <content:encoded><![CDATA[<p>Preply&#x27;s 0.8B grammar annotator beating prompted frontier models, eBay&#x27;s generative-vs-encoder students for topic tagging, Consultant&#x27;s 350M job-title model on a CPU, Amazon&#x27;s study of how serving settings change classifier predictions, and Enterpret&#x27;s whole-tree checks for generated taxonomies.</p><p>Show notes and all source links: <a href="https://swaroopgn.github.io/mylari-digest/episodes/2026-10-14/">https://swaroopgn.github.io/mylari-digest/episodes/2026-10-14/</a></p>]]></content:encoded>
+      <link>https://swaroopgn.github.io/mylari-digest/episodes/2026-10-14/</link>
+      <guid isPermaLink="false">small-models-real-systems-2026-10-14</guid>
+      <pubDate>Wed, 14 Oct 2026 18:00:00 +0200</pubDate>
+      <enclosure url="https://swaroopgn.github.io/mylari-digest/audio/small-models-real-systems-2026-10-14.mp3" length="4913741" type="audio/mpeg"/>
+      <itunes:title>Clean labels, checkable outputs, small students (14 Oct 2026)</itunes:title>
+      <itunes:summary>Preply's 0.8B grammar annotator beating prompted frontier models, eBay's generative-vs-encoder students for topic tagging, Consultant's 350M job-title model on a CPU, Amazon's study of how serving settings change classifier predictions, and Enterpret's whole-tree checks for generated taxonomies.</itunes:summary>
+      <itunes:duration>00:05:07</itunes:duration>
+      <itunes:episode>3</itunes:episode>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:image href="https://swaroopgn.github.io/mylari-digest/cover.jpg"/>
+    </item>
     <item>
       <title>The big model labels, the small model serves (7 Oct 2026)</title>
       <description>Walmart's DPO-tuned T5 for document expansion, a CPU-served distilled bi-encoder for resume matching, a frontier-annotated XLM-R privacy tagger, uniopen's fine-tuned Nova moderation on AWS, and Baszta's lesson in honest safety-classifier evaluation. Show notes and sources: https://swaroopgn.github.io/mylari-digest/episodes/2026-10-07/</description>
