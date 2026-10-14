@@ -1,0 +1,50 @@
+{
+  "duration_ms": 307069,
+  "chapters": [
+    {
+      "title": "Introduction",
+      "start_time_ms": 0,
+      "sources": []
+    },
+    {
+      "title": "Preply - a fine-tuned 0.8B grammar annotator beats frontier models",
+      "start_time_ms": 25946,
+      "sources": [
+        "https://arxiv.org/abs/2610.10827"
+      ]
+    },
+    {
+      "title": "eBay - generative vs encoder students for topic tagging",
+      "start_time_ms": 84843,
+      "sources": [
+        "https://arxiv.org/abs/2610.09063"
+      ]
+    },
+    {
+      "title": "Consultant - distilling a job-title model to 350M on a CPU",
+      "start_time_ms": 139247,
+      "sources": [
+        "https://consultant.dev/blog/job-title-model-on-a-cpu-2026"
+      ]
+    },
+    {
+      "title": "Amazon - serving settings change classifier predictions",
+      "start_time_ms": 192790,
+      "sources": [
+        "https://arxiv.org/abs/2610.09111"
+      ]
+    },
+    {
+      "title": "Enterpret - plausible taxonomies that fail as a whole",
+      "start_time_ms": 237032,
+      "sources": [
+        "https://arxiv.org/abs/2610.09377"
+      ]
+    },
+    {
+      "title": "Patterns this week and sign-off",
+      "start_time_ms": 281458,
+      "sources": []
+    }
+  ]
+}

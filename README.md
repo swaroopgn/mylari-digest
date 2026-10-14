@@ -14,6 +14,8 @@ episodes/<YYYY-MM-DD>/
   post.md                      companion blog post (Markdown; tables supported)
   script.txt / chapters.json / audio.mp3        written by `build.py tts`
   timeline.json / description.html              written by spotify_publish.py
+  <date>-small-models.transcript.json           Vaultcast transcript, written by transcript.py
+transcript.py    Vaultcast transcript from segments.json + TTS segment timings -> episodes/<date>/<id>.transcript.json
 make_audio.py    TTS per segment + pauses -> loudnorm -> 128k mono MP3 + chapters.json + <stem>.meta.json
                  (ElevenLabs by default, automatic whole-episode fallback to Kokoro)
 make_cover.py    save-to-spotify cover recipe (CDN base art + white Montserrat Bold title)
@@ -48,6 +50,31 @@ python3 build.py deploy                     # build + push sources to main + sit
 python3 spotify_publish.py <date> --post-url <base>/episodes/<date>/ [--dry-run]
 python3 serve.py 8787                       # local preview of site/ (Range-capable)
 ```
+
+## Vaultcast transcript (every week)
+`publish_week.sh` runs `python3 transcript.py <date>` right after narration, writing
+`episodes/<date>/<date>-small-models.transcript.json` in the Vaultcast contract
+(`/home/box/agent-data/workflows/publish-to-vaultcast/SKILL.md`, "Transcripts"). Run it by hand after any re-render:
+```
+python3 transcript.py <date> [--episode-id <vaultcast-episode-id>] [--out PATH]
+```
+- Text = `segments.json` (what was narrated, plain text). One heading block per chapter (`chapters.json`, same
+  starts as the Spotify/Vaultcast timeline), then one block per paragraph; paragraphs over 3 sentences or 60 words
+  are split into sentence groups. Ids: `<chapter-slug>`, `<chapter-slug>-1`, `-2` ...
+- Times (integer ms, same clock as the timeline): each segment's start is rebuilt from the cached ElevenLabs segment
+  mp3s in `.tts-cache/` (decoded length + leading/trailing silence, 0.25 s lead, `gap_seconds` gaps, `tempo`), then
+  snapped to the pauses ffmpeg `silencedetect` finds in `audio.mp3`; sentence-group splits are interpolated by
+  character count and snapped to an in-paragraph pause. The first block after a heading starts >= 250 ms later.
+  Kokoro fallback renders are timed from pause detection alone.
+- It refuses to write a file (non-zero exit) on a cache miss, if the predicted length differs from the audio by
+  > 1 s, or if validation fails (version 1, episodeId, id pattern `^[a-z0-9-]+$`, unique ids, no HTML/Markdown,
+  strictly increasing starts, end > start, within duration, heading starts == chapter starts, UTF-8 without BOM).
+- Vaultcast publish: upload the transcript next to the m4a (and images) in the Vaultcast folder first, then set the
+  episode's `"transcriptFile": "<id>.transcript.json"` in the downloaded current catalog.json and replace it.
+  The episode id defaults to `<date>-small-models`; title is `Small Models, Real Systems — <d Mon>` (matches the catalog).
+- Never edit a published block's text while keeping its id (ids + text are the phone's highlight addresses).
+- The backfill of the other shows used the same library: `/workspace/vaultcast/transcripts/build_all.py`
+  (+ `validate_all.py`).
 
 ## Narration (TTS)
 - Default: **ElevenLabs**, voice "Daniel - Steady Broadcaster" (`onwK4e9ZLuTAKqWW03F9`), model `eleven_v4`,

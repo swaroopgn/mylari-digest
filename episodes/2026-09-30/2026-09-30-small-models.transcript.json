@@ -1,0 +1,175 @@
+{
+ "version": 1,
+ "episodeId": "2026-09-30-small-models",
+ "title": "Small Models, Real Systems — 30 Sep",
+ "blocks": [
+  {
+   "id": "introduction",
+   "role": "heading",
+   "text": "Introduction",
+   "startTimeMs": 0
+  },
+  {
+   "id": "introduction-1",
+   "text": "Hi, and welcome to Small Models, Real Systems, the weekly research digest by Mylari. This is a test edition, dated Wednesday the thirtieth of September, 2026. Each week we pick new papers and engineering write-ups on fine-tuning small language models, roughly under ten billion parameters, for metadata generation and content understanding.",
+   "startTimeMs": 287,
+   "endTimeMs": 25446
+  },
+  {
+   "id": "introduction-2",
+   "text": "This week: five items, and a clear theme. Teams distill a big model into a small one, then spend their cleverness on decoding, rewards, and serving.",
+   "startTimeMs": 25867,
+   "endTimeMs": 37120
+  },
+  {
+   "id": "amazon-parallel-decoding-attribute",
+   "role": "heading",
+   "text": "Amazon - parallel-decoding attribute extraction",
+   "startTimeMs": 38093
+  },
+  {
+   "id": "amazon-parallel-decoding-attribute-1",
+   "text": "Let's start at Amazon. In a paper first posted on the ninth of September, slightly older than our usual window, Nikhita Vedula and colleagues describe a two-stage pipeline for product attribute extraction. First, a large foundation model, Claude, discovers a compact, ranked schema of purchase-deciding attributes for each product category.",
+   "startTimeMs": 38343,
+   "endTimeMs": 61756
+  },
+  {
+   "id": "amazon-parallel-decoding-attribute-2",
+   "text": "Then a fine-tuned Qwen3 model with four billion parameters extracts the values. It learns from a hundred thousand examples labeled by Claude, which is classic distillation. The twist is Hyper-Parallel Decoding.",
+   "startTimeMs": 62225,
+   "endTimeMs": 75733
+  },
+  {
+   "id": "amazon-parallel-decoding-attribute-3",
+   "text": "Because attribute values are mostly independent, the model decodes them all at once instead of one long token chain. The result: about eighty-five percent extraction accuracy, confirmed by human judges and on par with the teacher.",
+   "startTimeMs": 76052,
+   "endTimeMs": 91948
+  },
+  {
+   "id": "amazon-parallel-decoding-attribute-4",
+   "text": "Throughput is a hundred and fifty-nine thousand products per hour per instance, versus eighteen thousand with normal decoding. For thirty million products, that's roughly five thousand dollars, against sixty-three thousand through the foundation model's batch service: a ninety-two percent cost cut. One nice detail: the eight-billion model did slightly worse than the four-billion one.",
+   "startTimeMs": 92223,
+   "endTimeMs": 118948
+  },
+  {
+   "id": "aliexpress-correct-to-predict",
+   "role": "heading",
+   "text": "AliExpress - correct-to-predict multimodal extraction",
+   "startTimeMs": 119952
+  },
+  {
+   "id": "aliexpress-correct-to-predict-1",
+   "text": "Next, AliExpress. A paper from Alibaba International, posted on the twenty-eighth, tackles the hard part of attribute extraction: implicit values that need both the image and the text. Their method, called Correcting to Predict, fine-tunes the seven-billion-parameter Qwen2.5 vision-language model with Low-Rank Adaptation, or LoRA, but frames the task as correction.",
+   "startTimeMs": 120202,
+   "endTimeMs": 146786
+  },
+  {
+   "id": "aliexpress-correct-to-predict-2",
+   "text": "During training, it sees a plausible but possibly wrong value retrieved from similar products, and learns to fix it from the evidence. At inference, a fixed placeholder replaces retrieval, so serving stays single-pass.",
+   "startTimeMs": 146786,
+   "endTimeMs": 163228
+  },
+  {
+   "id": "aliexpress-correct-to-predict-3",
+   "text": "It reaches a micro F1 of eighty-eight point nine on the public ImplicitAVE benchmark, and keeps throughput close to a plain fine-tuned model: four point eight versus five point two queries per second on one GPU, while retrieval-augmented prompting drops to about one and a half.",
+   "startTimeMs": 163654,
+   "endTimeMs": 183189
+  },
+  {
+   "id": "aliexpress-correct-to-predict-4",
+   "text": "In a seven-day online test, deployable category and attribute pairs grew by twenty-two point six percent, and search filter usage rose by fifteen point six percent.",
+   "startTimeMs": 183641,
+   "endTimeMs": 194976
+  },
+  {
+   "id": "aws-sft-grpo-product-tagging",
+   "role": "heading",
+   "text": "AWS - SFT + GRPO product tagging",
+   "startTimeMs": 195959
+  },
+  {
+   "id": "aws-sft-grpo-product-tagging-1",
+   "text": "Third, a hands-on walkthrough from Amazon Web Services, published on the fifteenth. The authors tag retail products into a nine-field schema by fine-tuning Qwen3 eight billion, first with supervised fine-tuning, then with reinforcement learning from verifiable rewards, using Group Relative Policy Optimization, or GRPO.",
+   "startTimeMs": 196209,
+   "endTimeMs": 220487
+  },
+  {
+   "id": "aws-sft-grpo-product-tagging-2",
+   "text": "The reward is deterministic: format checks plus fuzzy tag matching, with a schedule that favors recall early and precision later. Supervised fine-tuning did the heavy lifting, taking the overall score from zero point three five to zero point six eight. GRPO then added only about one more point, trading a little precision for recall.",
+   "startTimeMs": 221069,
+   "endTimeMs": 245420
+  },
+  {
+   "id": "aws-sft-grpo-product-tagging-3",
+   "text": "The takeaway: here, reinforcement learning is a dial for your business trade-off, not a magic multiplier.",
+   "startTimeMs": 245966,
+   "endTimeMs": 253393
+  },
+  {
+   "id": "indeed-single-token-scoring-in",
+   "role": "heading",
+   "text": "Indeed - single-token scoring in production",
+   "startTimeMs": 254360
+  },
+  {
+   "id": "indeed-single-token-scoring-in-1",
+   "text": "Fourth, Indeed. In a paper from the sixteenth, they turn candidate ranking into a single-token classification. The model outputs a grade from one to five, and the score is the expected value over those five token probabilities.",
+   "startTimeMs": 254610,
+   "endTimeMs": 270102
+  },
+  {
+   "id": "indeed-single-token-scoring-in-2",
+   "text": "No output parsing, one decoding step, and far less run-to-run variance. They fine-tune with a loss that mixes mean squared error and cross-entropy, and serve Qwen3 eight billion with separate LoRA adapters per variant, in eight-bit floating point.",
+   "startTimeMs": 270627,
+   "endTimeMs": 288559
+  },
+  {
+   "id": "indeed-single-token-scoring-in-3",
+   "text": "Online, low-relevance results on the employer side fell by twenty-seven point three percent. The production section is the real gift: outcome-tagged calls, a ninety-nine point eight percent usable-score rate, drift monitoring on logit distributions, and a forty-eight-hour shadow phase for new models.",
+   "startTimeMs": 289216,
+   "endTimeMs": 308928
+  },
+  {
+   "id": "srjudge-shortlist-reason-judge",
+   "role": "heading",
+   "text": "SRJudge - shortlist, reason, judge",
+   "startTimeMs": 309888
+  },
+  {
+   "id": "srjudge-shortlist-reason-judge-1",
+   "text": "Finally, SRJudge, from Jinan University, posted just yesterday. It tags educational exercises with fine-grained concepts, from up to a hundred and fifty-five candidates, in three stages. A fine-tuned BERT selector narrows the list to five.",
+   "startTimeMs": 310138,
+   "endTimeMs": 327436
+  },
+  {
+   "id": "srjudge-shortlist-reason-judge-2",
+   "text": "A small Qwen model, one and a half billion parameters and trained with GRPO, reasons over that shortlist. Then a larger model judges. The key insight is a gap: BERT's top-one accuracy sits between sixty-three and seventy-two percent, but its top-five hit rate is above ninety-one.",
+   "startTimeMs": 327798,
+   "endTimeMs": 348421
+  },
+  {
+   "id": "patterns-this-week-and-sign-off",
+   "role": "heading",
+   "text": "Patterns this week and sign-off",
+   "startTimeMs": 349429
+  },
+  {
+   "id": "patterns-this-week-and-sign-off-1",
+   "text": "So, the patterns this week. Distill from a frontier teacher, then win on systems: parallel decoding, single tokens, placeholders instead of retrieval.",
+   "startTimeMs": 349679,
+   "endTimeMs": 361181
+  },
+  {
+   "id": "patterns-this-week-and-sign-off-2",
+   "text": "Treat reward shaping as a trade-off knob. And use shortlists to keep small models reliable. Links and numbers are in the companion post.",
+   "startTimeMs": 361654,
+   "endTimeMs": 371212
+  },
+  {
+   "id": "patterns-this-week-and-sign-off-3",
+   "text": "Thanks for listening, and see you next week.",
+   "startTimeMs": 371602,
+   "endTimeMs": 373742
+  }
+ ]
+}

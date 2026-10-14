@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Weekly run: audio -> site on GitHub Pages -> Spotify (private, saved show) -> site again with the Spotify link.
+# Weekly run: audio -> Vaultcast transcript -> site on GitHub Pages -> Spotify (private, saved show) -> site again with the Spotify link.
 # Usage: ./publish_week.sh YYYY-MM-DD [--skip-tts]
 # Prereqs: episodes/<date>/{episode.json,segments.json,post.md} written; `gh` authenticated as swaroopgn;
 #          save-to-spotify authenticated; show.json has base_url and spotify_show_uri.
@@ -22,6 +22,7 @@ if [ "$ENGINE" = elevenlabs ] && [ -z "${ELEVENLABS_API_KEY:-}" ]; then
   echo "WARNING: ELEVENLABS_API_KEY not set in this environment - narration will fall back to Kokoro" >&2
 fi
 [ "${2:-}" = "--skip-tts" ] || python3 build.py tts "$SLUG"   # ElevenLabs (show.json tts), auto-fallback to Kokoro
+python3 transcript.py "$SLUG"   # Vaultcast transcript: episodes/<date>/<date>-small-models.transcript.json (validated; fails loudly)
 python3 -c "import json;m=json.load(open('episodes/$SLUG/audio.meta.json'));print('narration:',m['engine'],m.get('voice'),m.get('model_id',''),'credits:',m.get('character_cost','-'))" 2>/dev/null || true
 python3 build.py deploy --base-url "$BASE"
 wait_live "$BASE/" "$POST" "$MP3" "$BASE/feed.xml"

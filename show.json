@@ -10,6 +10,12 @@
   "owner_email": "",
   "base_url": "https://swaroopgn.github.io/mylari-digest",
   "pronunciations": {
+    "GPT-5.4": "G P T five point four",
+    "GPT-4o": "G P T four oh",
+    "DeBERTa": "De Berta",
+    "bfloat16": "B float sixteen",
+    "LLM-judge": "L L M judge",
+    "Enterpret": "Enter-pret",
     "QGDPO": "Q G D P O",
     "DPO": "D P O",
     "HerBERT": "Her Bert",
