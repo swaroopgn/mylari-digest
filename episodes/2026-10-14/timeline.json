@@ -1,0 +1,95 @@
+{
+  "items": [
+    {
+      "chapter": {
+        "title": "Introduction",
+        "start_time_ms": 0
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 1000,
+        "duration_ms": 23946,
+        "url": "https://swaroopgn.github.io/mylari-digest/episodes/2026-10-14/"
+      }
+    },
+    {
+      "chapter": {
+        "title": "Preply - a fine-tuned 0.8B grammar annotator beats frontier models",
+        "start_time_ms": 25946
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 26946,
+        "duration_ms": 56897,
+        "url": "https://arxiv.org/abs/2610.10827"
+      }
+    },
+    {
+      "chapter": {
+        "title": "eBay - generative vs encoder students for topic tagging",
+        "start_time_ms": 84843
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 85843,
+        "duration_ms": 52404,
+        "url": "https://arxiv.org/abs/2610.09063"
+      }
+    },
+    {
+      "chapter": {
+        "title": "Consultant - distilling a job-title model to 350M on a CPU",
+        "start_time_ms": 139247
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 140247,
+        "duration_ms": 51543,
+        "url": "https://consultant.dev/blog/job-title-model-on-a-cpu-2026"
+      }
+    },
+    {
+      "chapter": {
+        "title": "Amazon - serving settings change classifier predictions",
+        "start_time_ms": 192790
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 193790,
+        "duration_ms": 42242,
+        "url": "https://arxiv.org/abs/2610.09111"
+      }
+    },
+    {
+      "chapter": {
+        "title": "Enterpret - plausible taxonomies that fail as a whole",
+        "start_time_ms": 237032
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 238032,
+        "duration_ms": 42426,
+        "url": "https://arxiv.org/abs/2610.09377"
+      }
+    },
+    {
+      "chapter": {
+        "title": "Patterns this week and sign-off",
+        "start_time_ms": 281458
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 282458,
+        "duration_ms": 23611,
+        "url": "https://swaroopgn.github.io/mylari-digest/episodes/2026-10-14/"
+      }
+    }
+  ]
+}
