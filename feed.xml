@@ -7,7 +7,7 @@
     <description>A weekly ~5-minute research digest on fine-tuning small language models (LoRA/QLoRA/PEFT, distillation, instruction and structured-output tuning) for metadata generation and content-understanding systems: tagging, attribute extraction, taxonomy classification, moderation and retrieval enrichment. Practical methods, evaluation, and production lessons. Produced by Mylari.</description>
     <language>en</language>
     <copyright>© 2026 Mylari</copyright>
-    <lastBuildDate>Wed, 14 Oct 2026 18:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 21 Oct 2026 18:00:00 +0200</lastBuildDate>
     <image><url>https://swaroopgn.github.io/mylari-digest/cover.jpg</url><title>Small Models, Real Systems</title><link>https://swaroopgn.github.io/mylari-digest/</link></image>
     <itunes:author>Mylari</itunes:author>
     <itunes:summary>A weekly ~5-minute research digest on fine-tuning small language models (LoRA/QLoRA/PEFT, distillation, instruction and structured-output tuning) for metadata generation and content-understanding systems: tagging, attribute extraction, taxonomy classification, moderation and retrieval enrichment. Practical methods, evaluation, and production lessons. Produced by Mylari.</itunes:summary>
@@ -18,6 +18,22 @@
     <itunes:type>episodic</itunes:type>
     <itunes:owner><itunes:name>Mylari</itunes:name></itunes:owner>
     <podcast:locked>no</podcast:locked>
+    <item>
+      <title>Copy the span, describe the queue (21 Oct 2026)</title>
+      <description>Amazon's hybrid tagging-plus-generation decoder for attribute extraction on a 0.6B model, LY Corporation's in-house encoders against a frontier LLM at a fraction of the cost, GitHub's ModernBERT secret classifier replacing an LLM pipeline, a trial of a fine-tuned 0.8B ticket router against Claude when new queues arrive, and BanglaShield's compact safety classifier across scripts. Show notes and sources: https://swaroopgn.github.io/mylari-digest/episodes/2026-10-21/</description>
+      <content:encoded><![CDATA[<p>Amazon&#x27;s hybrid tagging-plus-generation decoder for attribute extraction on a 0.6B model, LY Corporation&#x27;s in-house encoders against a frontier LLM at a fraction of the cost, GitHub&#x27;s ModernBERT secret classifier replacing an LLM pipeline, a trial of a fine-tuned 0.8B ticket router against Claude when new queues arrive, and BanglaShield&#x27;s compact safety classifier across scripts.</p><p>Show notes and all source links: <a href="https://swaroopgn.github.io/mylari-digest/episodes/2026-10-21/">https://swaroopgn.github.io/mylari-digest/episodes/2026-10-21/</a></p>]]></content:encoded>
+      <link>https://swaroopgn.github.io/mylari-digest/episodes/2026-10-21/</link>
+      <guid isPermaLink="false">small-models-real-systems-2026-10-21</guid>
+      <pubDate>Wed, 21 Oct 2026 18:00:00 +0200</pubDate>
+      <enclosure url="https://swaroopgn.github.io/mylari-digest/audio/small-models-real-systems-2026-10-21.mp3" length="4901620" type="audio/mpeg"/>
+      <itunes:title>Copy the span, describe the queue (21 Oct 2026)</itunes:title>
+      <itunes:summary>Amazon's hybrid tagging-plus-generation decoder for attribute extraction on a 0.6B model, LY Corporation's in-house encoders against a frontier LLM at a fraction of the cost, GitHub's ModernBERT secret classifier replacing an LLM pipeline, a trial of a fine-tuned 0.8B ticket router against Claude when new queues arrive, and BanglaShield's compact safety classifier across scripts.</itunes:summary>
+      <itunes:duration>00:05:06</itunes:duration>
+      <itunes:episode>4</itunes:episode>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:image href="https://swaroopgn.github.io/mylari-digest/cover.jpg"/>
+    </item>
     <item>
       <title>Clean labels, checkable outputs, small students (14 Oct 2026)</title>
       <description>Preply's 0.8B grammar annotator beating prompted frontier models, eBay's generative-vs-encoder students for topic tagging, Consultant's 350M job-title model on a CPU, Amazon's study of how serving settings change classifier predictions, and Enterpret's whole-tree checks for generated taxonomies. Show notes and sources: https://swaroopgn.github.io/mylari-digest/episodes/2026-10-14/</description>
