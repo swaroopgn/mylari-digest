@@ -6,5 +6,8 @@
   "summary": "Amazon's hybrid tagging-plus-generation decoder for attribute extraction on a 0.6B model, LY Corporation's in-house encoders against a frontier LLM at a fraction of the cost, GitHub's ModernBERT secret classifier replacing an LLM pipeline, a trial of a fine-tuned 0.8B ticket router against Claude when new queues arrive, and BanglaShield's compact safety classifier across scripts.",
   "audio": "audio.mp3",
   "voice": "ElevenLabs Daniel - Steady Broadcaster (eleven_v4)",
-  "spotify_title": "Small Models, Real Systems — 21 Oct 2026"
+  "spotify_title": "Small Models, Real Systems — 21 Oct 2026",
+  "spotify_episode_uri": "spotify:episode:7wEkK9KCgs7isPEXkCdh1k",
+  "spotify_url": "https://open.spotify.com/episode/7wEkK9KCgs7isPEXkCdh1k",
+  "spotify_ready": true
 }
