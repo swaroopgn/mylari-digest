@@ -1,0 +1,50 @@
+{
+  "duration_ms": 306311,
+  "chapters": [
+    {
+      "title": "Introduction",
+      "start_time_ms": 0,
+      "sources": []
+    },
+    {
+      "title": "Amazon - copy the span, generate only the rest",
+      "start_time_ms": 23464,
+      "sources": [
+        "https://arxiv.org/abs/2610.21329"
+      ]
+    },
+    {
+      "title": "LY Corporation - encoders pre-trained on your own text",
+      "start_time_ms": 71730,
+      "sources": [
+        "https://techblog.lycorp.co.jp/ja/20261015a"
+      ]
+    },
+    {
+      "title": "GitHub - regex for recall, an encoder for judgment",
+      "start_time_ms": 121510,
+      "sources": [
+        "https://github.blog/ai-and-ml/githubs-model-for-secret-detection-finding-more-secrets-with-less-noise/"
+      ]
+    },
+    {
+      "title": "Shravan Pendem - seven queues the model had never seen",
+      "start_time_ms": 173511,
+      "sources": [
+        "https://shravanpendem.com/blog/generative-ai/operations-llmops/fine-tuning-small-models-for-teams"
+      ]
+    },
+    {
+      "title": "BanglaShield - a compact safety classifier across scripts",
+      "start_time_ms": 229274,
+      "sources": [
+        "https://arxiv.org/abs/2610.24288"
+      ]
+    },
+    {
+      "title": "Patterns this week and sign-off",
+      "start_time_ms": 279838,
+      "sources": []
+    }
+  ]
+}

@@ -1,0 +1,163 @@
+{
+ "version": 1,
+ "episodeId": "2026-10-21-small-models",
+ "title": "Small Models, Real Systems — 21 Oct",
+ "blocks": [
+  {
+   "id": "introduction",
+   "role": "heading",
+   "text": "Introduction",
+   "startTimeMs": 0
+  },
+  {
+   "id": "introduction-1",
+   "text": "Hi, and welcome to Small Models, Real Systems, the weekly research digest by Mylari. This is edition four, for Wednesday the twenty-first of October, 2026.",
+   "startTimeMs": 290,
+   "endTimeMs": 11839
+  },
+  {
+   "id": "introduction-2",
+   "text": "This week: five picks where each part of the job goes to the cheapest thing that does it well. And a sharp reminder of what happens when the labels change.",
+   "startTimeMs": 12280,
+   "endTimeMs": 22470
+  },
+  {
+   "id": "amazon-copy-the-span-generate-only-the",
+   "role": "heading",
+   "text": "Amazon - copy the span, generate only the rest",
+   "startTimeMs": 23464
+  },
+  {
+   "id": "amazon-copy-the-span-generate-only-the-1",
+   "text": "First, Amazon, in a paper posted on the fifteenth. Product attribute extraction usually means a generative model writes every value out, token by token. But about four in five values in their catalog data appear word for word in the listing.",
+   "startTimeMs": 23714,
+   "endTimeMs": 40414
+  },
+  {
+   "id": "amazon-copy-the-span-generate-only-the-2",
+   "text": "So they added a tagging head to a fine-tuned Qwen3 model of just zero point six billion parameters. It checks the five hundred most common attributes in one pass and copies the matching span from the text.",
+   "startTimeMs": 40825,
+   "endTimeMs": 54551
+  },
+  {
+   "id": "amazon-copy-the-span-generate-only-the-3",
+   "text": "The generator only writes the rest: rare attributes, and inferred values like cuisine or diet type. Recall rose from about seventy to eighty percent, precision held at ninety-seven, and response time fell by forty-four percent.",
+   "startTimeMs": 54902,
+   "endTimeMs": 70724
+  },
+  {
+   "id": "ly-corporation-encoders-pre-trained-on",
+   "role": "heading",
+   "text": "LY Corporation - encoders pre-trained on your own text",
+   "startTimeMs": 71730
+  },
+  {
+   "id": "ly-corporation-encoders-pre-trained-on-1",
+   "text": "Second, LY Corporation, the company behind LINE and Yahoo Japan, in an engineering post from the fifteenth. Their Moegi project pre-trains BERT-style encoders on each service's own text and shares them across teams.",
+   "startTimeMs": 71980,
+   "endTimeMs": 87657
+  },
+  {
+   "id": "ly-corporation-encoders-pre-trained-on-2",
+   "text": "On three classification tasks from Yahoo Shopping and Yahoo Search, the hundred-and-ten-million-parameter model beat two public Japanese encoders of similar size on every task, by up to fourteen points. Against GPT-5.6 Sol with no examples, it won two of three tasks and came close on the third, at nine hundred to seventeen hundred times lower estimated inference cost.",
+   "startTimeMs": 88054,
+   "endTimeMs": 115047
+  },
+  {
+   "id": "ly-corporation-encoders-pre-trained-on-3",
+   "text": "The lesson: put your domain's vocabulary into pre-training once, and share it.",
+   "startTimeMs": 115488,
+   "endTimeMs": 120517
+  },
+  {
+   "id": "github-regex-for-recall-an-encoder-for",
+   "role": "heading",
+   "text": "GitHub - regex for recall, an encoder for judgment",
+   "startTimeMs": 121510
+  },
+  {
+   "id": "github-regex-for-recall-an-encoder-for-1",
+   "text": "Third, GitHub, in a post from the thirteenth, a day before our window. Secret scanning had used a large language model to decide whether a password-shaped string is a real credential. Now regular expressions cast a wide net for candidates, and a fine-tuned ModernBERT encoder reads each one with its file path, secret type and nearby code.",
+   "startTimeMs": 121760,
+   "endTimeMs": 144155
+  },
+  {
+   "id": "github-regex-for-recall-an-encoder-for-2",
+   "text": "Training leaned on hard negatives like test fixtures, checksums and documentation examples, and near-duplicates were kept out of the test set. Against the old pipeline: thirteen percent higher precision, nineteen percent higher recall, scans eighty-six percent faster, and serving cost down more than ninety-eight percent. In a live test, owner-weighted alert acceptance rose eleven and a half percent.",
+   "startTimeMs": 144411,
+   "endTimeMs": 172498
+  },
+  {
+   "id": "shravan-pendem-seven-queues-the-model",
+   "role": "heading",
+   "text": "Shravan Pendem - seven queues the model had never seen",
+   "startTimeMs": 173511
+  },
+  {
+   "id": "shravan-pendem-seven-queues-the-model-1",
+   "text": "Fourth, a careful trial by engineer Shravan Pendem, published on the seventeenth. He fine-tuned Qwen 3.5 at zero point eight billion parameters to route bank messages into seventy queues, using the public Banking seventy-seven dataset.",
+   "startTimeMs": 173761,
+   "endTimeMs": 190819
+  },
+  {
+   "id": "shravan-pendem-seven-queues-the-model-2",
+   "text": "With thirty-two labels per queue it scored eighty-seven percent, ahead of Claude Sonnet given only queue names, at eighty-one and a half. But with one written line describing each queue, Sonnet reached eighty-eight.",
+   "startTimeMs": 191435,
+   "endTimeMs": 205272
+  },
+  {
+   "id": "shravan-pendem-seven-queues-the-model-3",
+   "text": "Only the model trained on every label stayed clearly ahead, at ninety-three. Then the bank added seven queues. Claude handled them by editing its list.",
+   "startTimeMs": 205886,
+   "endTimeMs": 216375
+  },
+  {
+   "id": "shravan-pendem-seven-queues-the-model-4",
+   "text": "The trained model misrouted all but six of two hundred and eighty new-queue messages. His advice: describe your queues first, and name who retrains before launch.",
+   "startTimeMs": 216865,
+   "endTimeMs": 228270
+  },
+  {
+   "id": "banglashield-a-compact-safety",
+   "role": "heading",
+   "text": "BanglaShield - a compact safety classifier across scripts",
+   "startTimeMs": 229274
+  },
+  {
+   "id": "banglashield-a-compact-safety-1",
+   "text": "Fifth, safety classification in Bangla, from Manchester, Notre Dame, Lancaster and the Islamic University of Technology, posted on the sixteenth. Bangla is written in native script, in Latin letters, and code-mixed with English, Hindi or Urdu. Six large language models labelled forty-seven percent of unsafe native-script prompts as safe, and sixty-three percent once romanized.",
+   "startTimeMs": 229524,
+   "endTimeMs": 255715
+  },
+  {
+   "id": "banglashield-a-compact-safety-2",
+   "text": "A fine-tuned MuRIL encoder of about two hundred and thirty-seven million parameters reached eighty-four to eighty-eight macro F1 on every form, more than forty points ahead of the best large model. The catch: trained on native script alone, it scored under forty on romanized prompts. It needed romanized prompts in its training mix.",
+   "startTimeMs": 256080,
+   "endTimeMs": 278863
+  },
+  {
+   "id": "patterns-this-week-and-sign-off",
+   "role": "heading",
+   "text": "Patterns this week and sign-off",
+   "startTimeMs": 279838
+  },
+  {
+   "id": "patterns-this-week-and-sign-off-1",
+   "text": "The pattern this week: give each part of the job to the cheapest thing that does it well. Copy spans instead of generating them, filter with rules before a classifier, and pre-train on your own text.",
+   "startTimeMs": 280088,
+   "endTimeMs": 293031
+  },
+  {
+   "id": "patterns-this-week-and-sign-off-2",
+   "text": "But plan for change. New queues and new scripts broke models that looked great on their test sets. Links and numbers are in the show notes.",
+   "startTimeMs": 293493,
+   "endTimeMs": 302424
+  },
+  {
+   "id": "patterns-this-week-and-sign-off-3",
+   "text": "Thanks for listening, and see you next Wednesday.",
+   "startTimeMs": 302739,
+   "endTimeMs": 305009
+  }
+ ]
+}
