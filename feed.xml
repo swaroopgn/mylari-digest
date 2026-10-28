@@ -7,7 +7,7 @@
     <description>A weekly ~5-minute research digest on fine-tuning small language models (LoRA/QLoRA/PEFT, distillation, instruction and structured-output tuning) for metadata generation and content-understanding systems: tagging, attribute extraction, taxonomy classification, moderation and retrieval enrichment. Practical methods, evaluation, and production lessons. Produced by Mylari.</description>
     <language>en</language>
     <copyright>© 2026 Mylari</copyright>
-    <lastBuildDate>Wed, 21 Oct 2026 18:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 28 Oct 2026 18:00:00 +0100</lastBuildDate>
     <image><url>https://swaroopgn.github.io/mylari-digest/cover.jpg</url><title>Small Models, Real Systems</title><link>https://swaroopgn.github.io/mylari-digest/</link></image>
     <itunes:author>Mylari</itunes:author>
     <itunes:summary>A weekly ~5-minute research digest on fine-tuning small language models (LoRA/QLoRA/PEFT, distillation, instruction and structured-output tuning) for metadata generation and content-understanding systems: tagging, attribute extraction, taxonomy classification, moderation and retrieval enrichment. Practical methods, evaluation, and production lessons. Produced by Mylari.</itunes:summary>
@@ -18,6 +18,22 @@
     <itunes:type>episodic</itunes:type>
     <itunes:owner><itunes:name>Mylari</itunes:name></itunes:owner>
     <podcast:locked>no</podcast:locked>
+    <item>
+      <title>Score each label, mind the schema (28 Oct 2026)</title>
+      <description>LinkedIn turns a fine-tuned 1.5B labeler from list generation into per-candidate scoring, a preregistered study shows a schema minimum makes open models pad extraction lists, cost-aware abstention for IT ticket routing where fine-tuned DistilBERT beats prompted LLMs, a controlled LoRA versus full fine-tuning study for prompt-safety classifiers, and Atos fine-tuning small models for German hate-speech feature extraction. Show notes and sources: https://swaroopgn.github.io/mylari-digest/episodes/2026-10-28/</description>
+      <content:encoded><![CDATA[<p>LinkedIn turns a fine-tuned 1.5B labeler from list generation into per-candidate scoring, a preregistered study shows a schema minimum makes open models pad extraction lists, cost-aware abstention for IT ticket routing where fine-tuned DistilBERT beats prompted LLMs, a controlled LoRA versus full fine-tuning study for prompt-safety classifiers, and Atos fine-tuning small models for German hate-speech feature extraction.</p><p>Show notes and all source links: <a href="https://swaroopgn.github.io/mylari-digest/episodes/2026-10-28/">https://swaroopgn.github.io/mylari-digest/episodes/2026-10-28/</a></p>]]></content:encoded>
+      <link>https://swaroopgn.github.io/mylari-digest/episodes/2026-10-28/</link>
+      <guid isPermaLink="false">small-models-real-systems-2026-10-28</guid>
+      <pubDate>Wed, 28 Oct 2026 18:00:00 +0100</pubDate>
+      <enclosure url="https://swaroopgn.github.io/mylari-digest/audio/small-models-real-systems-2026-10-28.mp3" length="4874453" type="audio/mpeg"/>
+      <itunes:title>Score each label, mind the schema (28 Oct 2026)</itunes:title>
+      <itunes:summary>LinkedIn turns a fine-tuned 1.5B labeler from list generation into per-candidate scoring, a preregistered study shows a schema minimum makes open models pad extraction lists, cost-aware abstention for IT ticket routing where fine-tuned DistilBERT beats prompted LLMs, a controlled LoRA versus full fine-tuning study for prompt-safety classifiers, and Atos fine-tuning small models for German hate-speech feature extraction.</itunes:summary>
+      <itunes:duration>00:05:05</itunes:duration>
+      <itunes:episode>5</itunes:episode>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:image href="https://swaroopgn.github.io/mylari-digest/cover.jpg"/>
+    </item>
     <item>
       <title>Copy the span, describe the queue (21 Oct 2026)</title>
       <description>Amazon's hybrid tagging-plus-generation decoder for attribute extraction on a 0.6B model, LY Corporation's in-house encoders against a frontier LLM at a fraction of the cost, GitHub's ModernBERT secret classifier replacing an LLM pipeline, a trial of a fine-tuned 0.8B ticket router against Claude when new queues arrive, and BanglaShield's compact safety classifier across scripts. Show notes and sources: https://swaroopgn.github.io/mylari-digest/episodes/2026-10-21/</description>
