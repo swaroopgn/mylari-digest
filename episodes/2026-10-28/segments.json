@@ -1,0 +1,49 @@
+{
+  "segments": [
+    {
+      "title": "Introduction",
+      "sources": [],
+      "text": "Hi, and welcome to Small Models, Real Systems, the weekly research digest by Mylari. This is edition five, for Wednesday the twenty-eighth of October, 2026. This week: score each label instead of generating a list, watch what your schema asks for, and measure the decision you actually make."
+    },
+    {
+      "title": "LinkedIn - score each candidate, don't generate a list",
+      "sources": [
+        "https://arxiv.org/abs/2610.36383"
+      ],
+      "text": "First, LinkedIn, in a paper posted on the twenty-sixth. Their system labels member profiles against a catalog of qualifications. The old labeler packed many candidates into one prompt and generated a yes or no list. They fine-tuned a one point five billion parameter model on one candidate per prompt instead, and read the decision as the score of a single answer token, with no decoding. A trick called multiple-item scoring fits hundreds of candidates in one sequence, with attention masked between them. Reordering candidates now changes at most one in ten thousand labels. The packed model changed almost a quarter at its smallest training size. Scoring matched the old agreement with about four point seven times less training data, and served nearly twice the labels per second at the same latency target."
+    },
+    {
+      "title": "Padding to k - a schema minimum becomes a target",
+      "sources": [
+        "https://arxiv.org/abs/2610.30997"
+      ],
+      "text": "Second, a preregistered study by Abhishek Barali and Aayush Paudel, from the twenty-second. They asked what happens when a JSON schema sets a minimum list length, but the document holds fewer items. Across eight open-weight models and five hundred and fifty-eight real documents, showing a minimum in the schema raised over-long lists from thirty-four and a half percent to fifty-five. The padding is hard to spot: about half the extra entries are real text copied from the document, so they pass a simple source check. The common fixes leak. And re-asking with the validation error made it much worse, from ten percent to sixty-nine for one model."
+    },
+    {
+      "title": "IT tickets - know when not to route",
+      "sources": [
+        "https://arxiv.org/abs/2610.31657"
+      ],
+      "text": "Third, Sachin Gupta on routing IT support tickets, also from the twenty-second. A wrong route can cost more than a human looking at it. So he picks a confidence threshold on calibration data with explicit costs, then tests that frozen policy once. On almost forty-eight thousand public tickets in eight classes, simple logistic regression with a threshold cut expected cost by thirty-eight percent and wrong routes from fifteen percent to three and a half. On the same thousand tickets, fine-tuned DistilBERT reached eighty-eight percent accuracy, against forty-eight for the best prompted model. And at the break-even threshold, seven prompted setups simply deferred every ticket."
+    },
+    {
+      "title": "Prompt safety - LoRA, full fine-tuning and what you train on",
+      "sources": [
+        "https://arxiv.org/abs/2610.33813"
+      ],
+      "text": "Fourth, a controlled study of prompt-safety classifiers by John Alderete and colleagues, from the twenty-fourth. They compared low-rank adaptation, or LoRA, with full fine-tuning on a matched four hundred million parameter encoder and decoder pair, with up to fifteen seeds. Full fine-tuning led by two to three points at fixed learning rates. But on the encoder, the gap closed once both got the same learning-rate search. Training LoRA to write a short reason after its verdict added four points. A filler sentence of the same length did not. The warning: out of domain, the tuned models flagged up to two thirds of harmless but scary-looking prompts as unsafe. A prompted eight billion parameter model flagged two to three percent."
+    },
+    {
+      "title": "Atos - small models for German hate-speech extraction",
+      "sources": [
+        "https://developers.redhat.com/articles/2026/10/27/smaller-model-sharper-insights-how-atos-approached-structured-outputs"
+      ],
+      "text": "Fifth, a Red Hat post from yesterday on Atos and a German public-sector client that had to self-host. The job: extract fourteen features from social media comments, like slurs, tonality and locations, into JSON, and flag calls to violence. GPT four point one wrote synthetic training data, and three small models were fine-tuned on just three graphics cards. One base model produced valid JSON one percent of the time, and about ninety-nine after training. On their custom rubric, a fine-tuned seven billion parameter Qwen edged out GPT four point one with a detailed prompt, thirty point eight to thirty point five. Small margins, and the evaluation data was generated, so treat it as a proof of value. Tonality and summaries stayed the hardest parts for every model."
+    },
+    {
+      "title": "Patterns this week and sign-off",
+      "sources": [],
+      "text": "The pattern this week: let the model make one decision at a time, and score it rather than write it. Check what your schema and prompts quietly ask for. And judge the action, not the label: thresholds, deferral costs, and harmless inputs out of domain. Links and numbers are in the show notes. Thanks for listening, and see you next Wednesday."
+    }
+  ]
+}

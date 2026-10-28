@@ -1,0 +1,50 @@
+{
+  "duration_ms": 304613,
+  "chapters": [
+    {
+      "title": "Introduction",
+      "start_time_ms": 0,
+      "sources": []
+    },
+    {
+      "title": "LinkedIn - score each candidate, don't generate a list",
+      "start_time_ms": 23072,
+      "sources": [
+        "https://arxiv.org/abs/2610.36383"
+      ]
+    },
+    {
+      "title": "Padding to k - a schema minimum becomes a target",
+      "start_time_ms": 79566,
+      "sources": [
+        "https://arxiv.org/abs/2610.30997"
+      ]
+    },
+    {
+      "title": "IT tickets - know when not to route",
+      "start_time_ms": 124149,
+      "sources": [
+        "https://arxiv.org/abs/2610.31657"
+      ]
+    },
+    {
+      "title": "Prompt safety - LoRA, full fine-tuning and what you train on",
+      "start_time_ms": 171291,
+      "sources": [
+        "https://arxiv.org/abs/2610.33813"
+      ]
+    },
+    {
+      "title": "Atos - small models for German hate-speech extraction",
+      "start_time_ms": 224755,
+      "sources": [
+        "https://developers.redhat.com/articles/2026/10/27/smaller-model-sharper-insights-how-atos-approached-structured-outputs"
+      ]
+    },
+    {
+      "title": "Patterns this week and sign-off",
+      "start_time_ms": 280204,
+      "sources": []
+    }
+  ]
+}

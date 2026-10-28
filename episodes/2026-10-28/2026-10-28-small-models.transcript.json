@@ -1,0 +1,151 @@
+{
+ "version": 1,
+ "episodeId": "2026-10-28-small-models",
+ "title": "Small Models, Real Systems — 28 Oct",
+ "blocks": [
+  {
+   "id": "introduction",
+   "role": "heading",
+   "text": "Introduction",
+   "startTimeMs": 0
+  },
+  {
+   "id": "introduction-1",
+   "text": "Hi, and welcome to Small Models, Real Systems, the weekly research digest by Mylari. This is edition five, for Wednesday the twenty-eighth of October, 2026. This week: score each label instead of generating a list, watch what your schema asks for, and measure the decision you actually make.",
+   "startTimeMs": 279,
+   "endTimeMs": 22163
+  },
+  {
+   "id": "linkedin-score-each-candidate-dont",
+   "role": "heading",
+   "text": "LinkedIn - score each candidate, don't generate a list",
+   "startTimeMs": 23072
+  },
+  {
+   "id": "linkedin-score-each-candidate-dont-1",
+   "text": "First, LinkedIn, in a paper posted on the twenty-sixth. Their system labels member profiles against a catalog of qualifications. The old labeler packed many candidates into one prompt and generated a yes or no list.",
+   "startTimeMs": 23322,
+   "endTimeMs": 38052
+  },
+  {
+   "id": "linkedin-score-each-candidate-dont-2",
+   "text": "They fine-tuned a one point five billion parameter model on one candidate per prompt instead, and read the decision as the score of a single answer token, with no decoding. A trick called multiple-item scoring fits hundreds of candidates in one sequence, with attention masked between them.",
+   "startTimeMs": 38438,
+   "endTimeMs": 58000
+  },
+  {
+   "id": "linkedin-score-each-candidate-dont-3",
+   "text": "Reordering candidates now changes at most one in ten thousand labels. The packed model changed almost a quarter at its smallest training size. Scoring matched the old agreement with about four point seven times less training data, and served nearly twice the labels per second at the same latency target.",
+   "startTimeMs": 58401,
+   "endTimeMs": 78598
+  },
+  {
+   "id": "padding-to-k-a-schema-minimum-becomes-a",
+   "role": "heading",
+   "text": "Padding to k - a schema minimum becomes a target",
+   "startTimeMs": 79566
+  },
+  {
+   "id": "padding-to-k-a-schema-minimum-becomes-a-1",
+   "text": "Second, a preregistered study by Abhishek Barali and Aayush Paudel, from the twenty-second. They asked what happens when a JSON schema sets a minimum list length, but the document holds fewer items. Across eight open-weight models and five hundred and fifty-eight real documents, showing a minimum in the schema raised over-long lists from thirty-four and a half percent to fifty-five.",
+   "startTimeMs": 79816,
+   "endTimeMs": 105346
+  },
+  {
+   "id": "padding-to-k-a-schema-minimum-becomes-a-2",
+   "text": "The padding is hard to spot: about half the extra entries are real text copied from the document, so they pass a simple source check. The common fixes leak. And re-asking with the validation error made it much worse, from ten percent to sixty-nine for one model.",
+   "startTimeMs": 105765,
+   "endTimeMs": 123112
+  },
+  {
+   "id": "it-tickets-know-when-not-to-route",
+   "role": "heading",
+   "text": "IT tickets - know when not to route",
+   "startTimeMs": 124149
+  },
+  {
+   "id": "it-tickets-know-when-not-to-route-1",
+   "text": "Third, Sachin Gupta on routing IT support tickets, also from the twenty-second. A wrong route can cost more than a human looking at it. So he picks a confidence threshold on calibration data with explicit costs, then tests that frozen policy once.",
+   "startTimeMs": 124399,
+   "endTimeMs": 141820
+  },
+  {
+   "id": "it-tickets-know-when-not-to-route-2",
+   "text": "On almost forty-eight thousand public tickets in eight classes, simple logistic regression with a threshold cut expected cost by thirty-eight percent and wrong routes from fifteen percent to three and a half. On the same thousand tickets, fine-tuned DistilBERT reached eighty-eight percent accuracy, against forty-eight for the best prompted model.",
+   "startTimeMs": 142221,
+   "endTimeMs": 164457
+  },
+  {
+   "id": "it-tickets-know-when-not-to-route-3",
+   "text": "And at the break-even threshold, seven prompted setups simply deferred every ticket.",
+   "startTimeMs": 164832,
+   "endTimeMs": 170342
+  },
+  {
+   "id": "prompt-safety-lora-full-fine-tuning-and",
+   "role": "heading",
+   "text": "Prompt safety - LoRA, full fine-tuning and what you train on",
+   "startTimeMs": 171291
+  },
+  {
+   "id": "prompt-safety-lora-full-fine-tuning-and-1",
+   "text": "Fourth, a controlled study of prompt-safety classifiers by John Alderete and colleagues, from the twenty-fourth. They compared low-rank adaptation, or LoRA, with full fine-tuning on a matched four hundred million parameter encoder and decoder pair, with up to fifteen seeds.",
+   "startTimeMs": 171541,
+   "endTimeMs": 190549
+  },
+  {
+   "id": "prompt-safety-lora-full-fine-tuning-and-2",
+   "text": "Full fine-tuning led by two to three points at fixed learning rates. But on the encoder, the gap closed once both got the same learning-rate search. Training LoRA to write a short reason after its verdict added four points.",
+   "startTimeMs": 191062,
+   "endTimeMs": 206428
+  },
+  {
+   "id": "prompt-safety-lora-full-fine-tuning-and-3",
+   "text": "A filler sentence of the same length did not. The warning: out of domain, the tuned models flagged up to two thirds of harmless but scary-looking prompts as unsafe. A prompted eight billion parameter model flagged two to three percent.",
+   "startTimeMs": 207066,
+   "endTimeMs": 223718
+  },
+  {
+   "id": "atos-small-models-for-german-hate",
+   "role": "heading",
+   "text": "Atos - small models for German hate-speech extraction",
+   "startTimeMs": 224755
+  },
+  {
+   "id": "atos-small-models-for-german-hate-1",
+   "text": "Fifth, a Red Hat post from yesterday on Atos and a German public-sector client that had to self-host. The job: extract fourteen features from social media comments, like slurs, tonality and locations, into JSON, and flag calls to violence.",
+   "startTimeMs": 225005,
+   "endTimeMs": 242530
+  },
+  {
+   "id": "atos-small-models-for-german-hate-2",
+   "text": "GPT four point one wrote synthetic training data, and three small models were fine-tuned on just three graphics cards. One base model produced valid JSON one percent of the time, and about ninety-nine after training.",
+   "startTimeMs": 242936,
+   "endTimeMs": 257582
+  },
+  {
+   "id": "atos-small-models-for-german-hate-3",
+   "text": "On their custom rubric, a fine-tuned seven billion parameter Qwen edged out GPT four point one with a detailed prompt, thirty point eight to thirty point five. Small margins, and the evaluation data was generated, so treat it as a proof of value. Tonality and summaries stayed the hardest parts for every model.",
+   "startTimeMs": 257960,
+   "endTimeMs": 279233
+  },
+  {
+   "id": "patterns-this-week-and-sign-off",
+   "role": "heading",
+   "text": "Patterns this week and sign-off",
+   "startTimeMs": 280204
+  },
+  {
+   "id": "patterns-this-week-and-sign-off-1",
+   "text": "The pattern this week: let the model make one decision at a time, and score it rather than write it. Check what your schema and prompts quietly ask for.",
+   "startTimeMs": 280454,
+   "endTimeMs": 290618
+  },
+  {
+   "id": "patterns-this-week-and-sign-off-2",
+   "text": "And judge the action, not the label: thresholds, deferral costs, and harmless inputs out of domain. Links and numbers are in the show notes. Thanks for listening, and see you next Wednesday.",
+   "startTimeMs": 291023,
+   "endTimeMs": 303265
+  }
+ ]
+}

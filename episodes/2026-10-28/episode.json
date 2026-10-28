@@ -1,0 +1,10 @@
+{
+  "slug": "2026-10-28",
+  "number": 5,
+  "title": "Score each label, mind the schema (28 Oct 2026)",
+  "date": "2026-10-28T18:00:00+01:00",
+  "summary": "LinkedIn turns a fine-tuned 1.5B labeler from list generation into per-candidate scoring, a preregistered study shows a schema minimum makes open models pad extraction lists, cost-aware abstention for IT ticket routing where fine-tuned DistilBERT beats prompted LLMs, a controlled LoRA versus full fine-tuning study for prompt-safety classifiers, and Atos fine-tuning small models for German hate-speech feature extraction.",
+  "audio": "audio.mp3",
+  "voice": "ElevenLabs Daniel - Steady Broadcaster (eleven_v4)",
+  "spotify_title": "Small Models, Real Systems — 28 Oct 2026"
+}
