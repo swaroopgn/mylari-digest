@@ -1,0 +1,95 @@
+{
+  "items": [
+    {
+      "chapter": {
+        "title": "Introduction",
+        "start_time_ms": 0
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 1000,
+        "duration_ms": 21072,
+        "url": "https://swaroopgn.github.io/mylari-digest/episodes/2026-10-28/"
+      }
+    },
+    {
+      "chapter": {
+        "title": "LinkedIn - score each candidate, don't generate a list",
+        "start_time_ms": 23072
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 24072,
+        "duration_ms": 54494,
+        "url": "https://arxiv.org/abs/2610.36383"
+      }
+    },
+    {
+      "chapter": {
+        "title": "Padding to k - a schema minimum becomes a target",
+        "start_time_ms": 79566
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 80566,
+        "duration_ms": 42583,
+        "url": "https://arxiv.org/abs/2610.30997"
+      }
+    },
+    {
+      "chapter": {
+        "title": "IT tickets - know when not to route",
+        "start_time_ms": 124149
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 125149,
+        "duration_ms": 45142,
+        "url": "https://arxiv.org/abs/2610.31657"
+      }
+    },
+    {
+      "chapter": {
+        "title": "Prompt safety - LoRA, full fine-tuning and what you train on",
+        "start_time_ms": 171291
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 172291,
+        "duration_ms": 51464,
+        "url": "https://arxiv.org/abs/2610.33813"
+      }
+    },
+    {
+      "chapter": {
+        "title": "Atos - small models for German hate-speech extraction",
+        "start_time_ms": 224755
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 225755,
+        "duration_ms": 53449,
+        "url": "https://developers.redhat.com/articles/2026/10/27/smaller-model-sharper-insights-how-atos-approached-structured-outputs"
+      }
+    },
+    {
+      "chapter": {
+        "title": "Patterns this week and sign-off",
+        "start_time_ms": 280204
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 281204,
+        "duration_ms": 22409,
+        "url": "https://swaroopgn.github.io/mylari-digest/episodes/2026-10-28/"
+      }
+    }
+  ]
+}

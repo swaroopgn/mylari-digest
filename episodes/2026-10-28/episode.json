@@ -6,5 +6,8 @@
   "summary": "LinkedIn turns a fine-tuned 1.5B labeler from list generation into per-candidate scoring, a preregistered study shows a schema minimum makes open models pad extraction lists, cost-aware abstention for IT ticket routing where fine-tuned DistilBERT beats prompted LLMs, a controlled LoRA versus full fine-tuning study for prompt-safety classifiers, and Atos fine-tuning small models for German hate-speech feature extraction.",
   "audio": "audio.mp3",
   "voice": "ElevenLabs Daniel - Steady Broadcaster (eleven_v4)",
-  "spotify_title": "Small Models, Real Systems — 28 Oct 2026"
+  "spotify_title": "Small Models, Real Systems — 28 Oct 2026",
+  "spotify_episode_uri": "spotify:episode:7bYhnvJ5qxsg7WO3pi1dUo",
+  "spotify_url": "https://open.spotify.com/episode/7bYhnvJ5qxsg7WO3pi1dUo",
+  "spotify_ready": true
 }
