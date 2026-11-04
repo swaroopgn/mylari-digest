@@ -1,0 +1,95 @@
+{
+  "items": [
+    {
+      "chapter": {
+        "title": "Introduction",
+        "start_time_ms": 0
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 1000,
+        "duration_ms": 21072,
+        "url": "https://swaroopgn.github.io/mylari-digest/episodes/2026-11-04/"
+      }
+    },
+    {
+      "chapter": {
+        "title": "Do you need an LLM? Read the task first",
+        "start_time_ms": 23072
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 24072,
+        "duration_ms": 57864,
+        "url": "https://driquet.info/do-you-need-an-llm/"
+      }
+    },
+    {
+      "chapter": {
+        "title": "XDecideBench - English thresholds don't travel",
+        "start_time_ms": 82936
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 83936,
+        "duration_ms": 49453,
+        "url": "https://arxiv.org/abs/2611.01370"
+      }
+    },
+    {
+      "chapter": {
+        "title": "Distilled sentiment - beat the teacher, mind the neutral",
+        "start_time_ms": 134389
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 135389,
+        "duration_ms": 46892,
+        "url": "https://arxiv.org/abs/2611.02985"
+      }
+    },
+    {
+      "chapter": {
+        "title": "Second opinions - finding errors is not fixing them",
+        "start_time_ms": 183281
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 184281,
+        "duration_ms": 49609,
+        "url": "https://arxiv.org/abs/2611.02989"
+      }
+    },
+    {
+      "chapter": {
+        "title": "Tajik embedder - a small fine-tune for retrieval",
+        "start_time_ms": 234890
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 235890,
+        "duration_ms": 48983,
+        "url": "https://arxiv.org/abs/2611.00592"
+      }
+    },
+    {
+      "chapter": {
+        "title": "Patterns this week and sign-off",
+        "start_time_ms": 285873
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 286873,
+        "duration_ms": 21913,
+        "url": "https://swaroopgn.github.io/mylari-digest/episodes/2026-11-04/"
+      }
+    }
+  ]
+}

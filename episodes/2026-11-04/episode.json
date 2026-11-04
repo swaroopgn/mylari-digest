@@ -6,5 +6,8 @@
   "summary": "A laptop benchmark shows when a fine-tuned 150M encoder beats a prompted 4B model and when it only ties, XDecideBench finds English-fitted confidence thresholds and model picks don't hold across 122 languages, BERT students distilled from an LLM beat their teacher on sentences that carry sentiment, a study of selective escalation shows that finding errors is not the same as fixing them, and a 560M Tajik embedder fine-tuned in under an hour.",
   "audio": "audio.mp3",
   "voice": "ElevenLabs Daniel - Steady Broadcaster (eleven_v4)",
-  "spotify_title": "Small Models, Real Systems — 4 Nov 2026"
+  "spotify_title": "Small Models, Real Systems — 4 Nov 2026",
+  "spotify_episode_uri": "spotify:episode:3Zcie5N3DYUoKCpelxIYkL",
+  "spotify_url": "https://open.spotify.com/episode/3Zcie5N3DYUoKCpelxIYkL",
+  "spotify_ready": true
 }
