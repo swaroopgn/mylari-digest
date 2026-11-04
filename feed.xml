@@ -7,7 +7,7 @@
     <description>A weekly ~5-minute research digest on fine-tuning small language models (LoRA/QLoRA/PEFT, distillation, instruction and structured-output tuning) for metadata generation and content-understanding systems: tagging, attribute extraction, taxonomy classification, moderation and retrieval enrichment. Practical methods, evaluation, and production lessons. Produced by Mylari.</description>
     <language>en</language>
     <copyright>© 2026 Mylari</copyright>
-    <lastBuildDate>Wed, 28 Oct 2026 18:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 04 Nov 2026 18:00:00 +0100</lastBuildDate>
     <image><url>https://swaroopgn.github.io/mylari-digest/cover.jpg</url><title>Small Models, Real Systems</title><link>https://swaroopgn.github.io/mylari-digest/</link></image>
     <itunes:author>Mylari</itunes:author>
     <itunes:summary>A weekly ~5-minute research digest on fine-tuning small language models (LoRA/QLoRA/PEFT, distillation, instruction and structured-output tuning) for metadata generation and content-understanding systems: tagging, attribute extraction, taxonomy classification, moderation and retrieval enrichment. Practical methods, evaluation, and production lessons. Produced by Mylari.</itunes:summary>
@@ -18,6 +18,22 @@
     <itunes:type>episodic</itunes:type>
     <itunes:owner><itunes:name>Mylari</itunes:name></itunes:owner>
     <podcast:locked>no</podcast:locked>
+    <item>
+      <title>Read the task, check the threshold (4 Nov 2026)</title>
+      <description>A laptop benchmark shows when a fine-tuned 150M encoder beats a prompted 4B model and when it only ties, XDecideBench finds English-fitted confidence thresholds and model picks don't hold across 122 languages, BERT students distilled from an LLM beat their teacher on sentences that carry sentiment, a study of selective escalation shows that finding errors is not the same as fixing them, and a 560M Tajik embedder fine-tuned in under an hour. Show notes and sources: https://swaroopgn.github.io/mylari-digest/episodes/2026-11-04/</description>
+      <content:encoded><![CDATA[<p>A laptop benchmark shows when a fine-tuned 150M encoder beats a prompted 4B model and when it only ties, XDecideBench finds English-fitted confidence thresholds and model picks don&#x27;t hold across 122 languages, BERT students distilled from an LLM beat their teacher on sentences that carry sentiment, a study of selective escalation shows that finding errors is not the same as fixing them, and a 560M Tajik embedder fine-tuned in under an hour.</p><p>Show notes and all source links: <a href="https://swaroopgn.github.io/mylari-digest/episodes/2026-11-04/">https://swaroopgn.github.io/mylari-digest/episodes/2026-11-04/</a></p>]]></content:encoded>
+      <link>https://swaroopgn.github.io/mylari-digest/episodes/2026-11-04/</link>
+      <guid isPermaLink="false">small-models-real-systems-2026-11-04</guid>
+      <pubDate>Wed, 04 Nov 2026 18:00:00 +0100</pubDate>
+      <enclosure url="https://swaroopgn.github.io/mylari-digest/audio/small-models-real-systems-2026-11-04.mp3" length="4957206" type="audio/mpeg"/>
+      <itunes:title>Read the task, check the threshold (4 Nov 2026)</itunes:title>
+      <itunes:summary>A laptop benchmark shows when a fine-tuned 150M encoder beats a prompted 4B model and when it only ties, XDecideBench finds English-fitted confidence thresholds and model picks don't hold across 122 languages, BERT students distilled from an LLM beat their teacher on sentences that carry sentiment, a study of selective escalation shows that finding errors is not the same as fixing them, and a 560M Tajik embedder fine-tuned in under an hour.</itunes:summary>
+      <itunes:duration>00:05:10</itunes:duration>
+      <itunes:episode>6</itunes:episode>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:image href="https://swaroopgn.github.io/mylari-digest/cover.jpg"/>
+    </item>
     <item>
       <title>Score each label, mind the schema (28 Oct 2026)</title>
       <description>LinkedIn turns a fine-tuned 1.5B labeler from list generation into per-candidate scoring, a preregistered study shows a schema minimum makes open models pad extraction lists, cost-aware abstention for IT ticket routing where fine-tuned DistilBERT beats prompted LLMs, a controlled LoRA versus full fine-tuning study for prompt-safety classifiers, and Atos fine-tuning small models for German hate-speech feature extraction. Show notes and sources: https://swaroopgn.github.io/mylari-digest/episodes/2026-10-28/</description>
