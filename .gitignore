@@ -6,3 +6,4 @@ __pycache__/
 episodes/*/audio-*.mp3
 episodes/*/audio-*.meta.json
 episodes/*/chapters-audio-*.json
+*.m4a
