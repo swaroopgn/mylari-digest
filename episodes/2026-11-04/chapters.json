@@ -1,0 +1,50 @@
+{
+  "duration_ms": 309786,
+  "chapters": [
+    {
+      "title": "Introduction",
+      "start_time_ms": 0,
+      "sources": []
+    },
+    {
+      "title": "Do you need an LLM? Read the task first",
+      "start_time_ms": 23072,
+      "sources": [
+        "https://driquet.info/do-you-need-an-llm/"
+      ]
+    },
+    {
+      "title": "XDecideBench - English thresholds don't travel",
+      "start_time_ms": 82936,
+      "sources": [
+        "https://arxiv.org/abs/2611.01370"
+      ]
+    },
+    {
+      "title": "Distilled sentiment - beat the teacher, mind the neutral",
+      "start_time_ms": 134389,
+      "sources": [
+        "https://arxiv.org/abs/2611.02985"
+      ]
+    },
+    {
+      "title": "Second opinions - finding errors is not fixing them",
+      "start_time_ms": 183281,
+      "sources": [
+        "https://arxiv.org/abs/2611.02989"
+      ]
+    },
+    {
+      "title": "Tajik embedder - a small fine-tune for retrieval",
+      "start_time_ms": 234890,
+      "sources": [
+        "https://arxiv.org/abs/2611.00592"
+      ]
+    },
+    {
+      "title": "Patterns this week and sign-off",
+      "start_time_ms": 285873,
+      "sources": []
+    }
+  ]
+}
