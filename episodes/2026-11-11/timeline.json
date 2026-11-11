@@ -1,0 +1,95 @@
+{
+  "items": [
+    {
+      "chapter": {
+        "title": "Introduction",
+        "start_time_ms": 0
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 1000,
+        "duration_ms": 21307,
+        "url": "https://swaroopgn.github.io/mylari-digest/episodes/2026-11-11/"
+      }
+    },
+    {
+      "chapter": {
+        "title": "Atlassian - train with reasoning, serve without it",
+        "start_time_ms": 23307
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 24307,
+        "duration_ms": 47859,
+        "url": "https://www.atlassian.com/blog/how-we-build/teaching-a-4b-model-to-think-like-a-policy-expert"
+      }
+    },
+    {
+      "chapter": {
+        "title": "A 400M job extractor - rules first, model second",
+        "start_time_ms": 73166
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 74166,
+        "duration_ms": 52979,
+        "url": "https://dev.to/lucagiftzek/we-distilled-a-job-posting-extractor-into-a-400m-model-that-runs-on-an-8-gb-gpu-1bnk"
+      }
+    },
+    {
+      "chapter": {
+        "title": "Mobile AI Factory - score the file the phone runs",
+        "start_time_ms": 128145
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 129145,
+        "duration_ms": 56402,
+        "url": "https://arxiv.org/abs/2611.13509"
+      }
+    },
+    {
+      "chapter": {
+        "title": "StaRSE - a Russian embedder without a transformer",
+        "start_time_ms": 186547
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 187547,
+        "duration_ms": 39865,
+        "url": "https://arxiv.org/abs/2611.14236"
+      }
+    },
+    {
+      "chapter": {
+        "title": "LLM annotators - definitions versus old labels",
+        "start_time_ms": 228412
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 229412,
+        "duration_ms": 45377,
+        "url": "https://arxiv.org/abs/2611.09457"
+      }
+    },
+    {
+      "chapter": {
+        "title": "Patterns this week and sign-off",
+        "start_time_ms": 275789
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 276789,
+        "duration_ms": 20006,
+        "url": "https://swaroopgn.github.io/mylari-digest/episodes/2026-11-11/"
+      }
+    }
+  ]
+}
