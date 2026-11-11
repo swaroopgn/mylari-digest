@@ -1,0 +1,50 @@
+{
+  "duration_ms": 297795,
+  "chapters": [
+    {
+      "title": "Introduction",
+      "start_time_ms": 0,
+      "sources": []
+    },
+    {
+      "title": "Atlassian - train with reasoning, serve without it",
+      "start_time_ms": 23307,
+      "sources": [
+        "https://www.atlassian.com/blog/how-we-build/teaching-a-4b-model-to-think-like-a-policy-expert"
+      ]
+    },
+    {
+      "title": "A 400M job extractor - rules first, model second",
+      "start_time_ms": 73166,
+      "sources": [
+        "https://dev.to/lucagiftzek/we-distilled-a-job-posting-extractor-into-a-400m-model-that-runs-on-an-8-gb-gpu-1bnk"
+      ]
+    },
+    {
+      "title": "Mobile AI Factory - score the file the phone runs",
+      "start_time_ms": 128145,
+      "sources": [
+        "https://arxiv.org/abs/2611.13509"
+      ]
+    },
+    {
+      "title": "StaRSE - a Russian embedder without a transformer",
+      "start_time_ms": 186547,
+      "sources": [
+        "https://arxiv.org/abs/2611.14236"
+      ]
+    },
+    {
+      "title": "LLM annotators - definitions versus old labels",
+      "start_time_ms": 228412,
+      "sources": [
+        "https://arxiv.org/abs/2611.09457"
+      ]
+    },
+    {
+      "title": "Patterns this week and sign-off",
+      "start_time_ms": 275789,
+      "sources": []
+    }
+  ]
+}

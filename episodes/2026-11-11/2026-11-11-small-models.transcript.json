@@ -1,0 +1,151 @@
+{
+ "version": 1,
+ "episodeId": "2026-11-11-small-models",
+ "title": "Small Models, Real Systems — 11 Nov",
+ "blocks": [
+  {
+   "id": "introduction",
+   "role": "heading",
+   "text": "Introduction",
+   "startTimeMs": 0
+  },
+  {
+   "id": "introduction-1",
+   "text": "Hi, and welcome to Small Models, Real Systems, the weekly research digest by Mylari. This is edition seven, for Wednesday the eleventh of November, 2026. This week: let the small model take the first pass, check the exact file you ship, and make sure your examples say what your definitions say.",
+   "startTimeMs": 281,
+   "endTimeMs": 22296
+  },
+  {
+   "id": "atlassian-train-with-reasoning-serve",
+   "role": "heading",
+   "text": "Atlassian - train with reasoning, serve without it",
+   "startTimeMs": 23307
+  },
+  {
+   "id": "atlassian-train-with-reasoning-serve-1",
+   "text": "First, Atlassian, posted on the fourth. Every message and query in its Rovo assistant passes a policy filter before it is answered. A twenty billion parameter safety model, prompted for months, stalled at fifty-one percent recall.",
+   "startTimeMs": 23557,
+   "endTimeMs": 39136
+  },
+  {
+   "id": "atlassian-train-with-reasoning-serve-2",
+   "text": "With NVIDIA, the team fine-tuned Nemotron three Nano, a four billion parameter model, on over twenty thousand synthetic examples that included the reasoning behind each label, then on two thousand preference pairs. In production the small model runs first and passes suspicious cases to the big one.",
+   "startTimeMs": 39635,
+   "endTimeMs": 60453
+  },
+  {
+   "id": "atlassian-train-with-reasoning-serve-3",
+   "text": "Precision rose from ninety-four to ninety-eight percent, recall from fifty-one to fifty-seven, and latency fell from seven hundred and forty milliseconds to three hundred and fifty.",
+   "startTimeMs": 60825,
+   "endTimeMs": 72148
+  },
+  {
+   "id": "a-400m-job-extractor-rules-first-model",
+   "role": "heading",
+   "text": "A 400M job extractor - rules first, model second",
+   "startTimeMs": 73166
+  },
+  {
+   "id": "a-400m-job-extractor-rules-first-model-1",
+   "text": "Second, Loukas Tzekos, who runs a one-person jobs data company, posted on the sixth. His rule-based salary parser found pay in only fifty-nine percent of postings that stated one. A larger open model labelled about forty-seven thousand postings into thirteen fields.",
+   "startTimeMs": 73416,
+   "endTimeMs": 92583
+  },
+  {
+   "id": "a-400m-job-extractor-rules-first-model-2",
+   "text": "The student, an IBM Granite model with about four hundred million active parameters, was tuned with Low-Rank Adaptation, or LoRA. It matched a twenty-seven billion parameter model, and its four-bit file, under one gigabyte, runs on an eight gigabyte consumer card.",
+   "startTimeMs": 93090,
+   "endTimeMs": 111467
+  },
+  {
+   "id": "a-400m-job-extractor-rules-first-model-3",
+   "text": "Salary F one went from seventy-four to ninety. But about three percent of its salary amounts were invented. So rules run first, the model fills gaps, and a number is kept only if its digits appear in the posting.",
+   "startTimeMs": 112006,
+   "endTimeMs": 127169
+  },
+  {
+   "id": "mobile-ai-factory-score-the-file-the",
+   "role": "heading",
+   "text": "Mobile AI Factory - score the file the phone runs",
+   "startTimeMs": 128145
+  },
+  {
+   "id": "mobile-ai-factory-score-the-file-the-1",
+   "text": "Third, Mobile AI Factory, from Shyam Gollakota's group at the University of Washington, posted on the tenth. Give it a task and a phone, and an orchestrator model tunes settings, mines data or generates synthetic examples, climbing from the smallest of twenty-seven model and precision combinations.",
+   "startTimeMs": 128395,
+   "endTimeMs": 148832
+  },
+  {
+   "id": "mobile-ai-factory-score-the-file-the-2",
+   "text": "Fixed rules roll back any change that hurts, and in the longest run that was eighty-eight percent of them. On unseen test sets, its phone models beat two five-shot frontier models on five of ten tasks and matched them on three.",
+   "startTimeMs": 149288,
+   "endTimeMs": 165214
+  },
+  {
+   "id": "mobile-ai-factory-score-the-file-the-3",
+   "text": "On biomedical entity extraction, a five hundred and seventeen megabyte model scored point eight three, against point six five for Claude. And one engine's default four-bit export cut an intent classifier from point seven seven to point six six. Score the exact file the phone runs.",
+   "startTimeMs": 165643,
+   "endTimeMs": 185568
+  },
+  {
+   "id": "starse-a-russian-embedder-without-a",
+   "role": "heading",
+   "text": "StaRSE - a Russian embedder without a transformer",
+   "startTimeMs": 186547
+  },
+  {
+   "id": "starse-a-russian-embedder-without-a-1",
+   "text": "Fourth, StaRSE, a Russian sentence embedder from ITMO University, also from the tenth. It starts from ruBERT and ends with no transformer at all. Each token keeps a direction stored as sign bits, plus one length, and a sentence is the average of its tokens.",
+   "startTimeMs": 186797,
+   "endTimeMs": 206225
+  },
+  {
+   "id": "starse-a-russian-embedder-without-a-2",
+   "text": "On the Russian text embedding benchmark it scores fifty-one point two, almost eight points above the best static baseline and two point six below the closest small transformer. It is about eleven megabytes and about eighteen times faster on an ordinary processor. The catch: it cannot see word order.",
+   "startTimeMs": 206911,
+   "endTimeMs": 227396
+  },
+  {
+   "id": "llm-annotators-definitions-versus-old",
+   "role": "heading",
+   "text": "LLM annotators - definitions versus old labels",
+   "startTimeMs": 228412
+  },
+  {
+   "id": "llm-annotators-definitions-versus-old-1",
+   "text": "Fifth, a Penn State team, posted on the sixth, on what a large language model, or LLM, annotator actually follows. On three political-text codebooks, they swapped definitions between labels.",
+   "startTimeMs": 228662,
+   "endTimeMs": 242002
+  },
+  {
+   "id": "llm-annotators-definitions-versus-old-2",
+   "text": "Models mostly kept the old mapping. On protest reports, Mistral seven B matched the original label fifty-six percent of the time, and the swapped definition eleven percent. LoRA fine-tuning on human labels raised original-label agreement in every case, without reliably raising adherence to the definitions.",
+   "startTimeMs": 242545,
+   "endTimeMs": 263259
+  },
+  {
+   "id": "llm-annotators-definitions-versus-old-3",
+   "text": "And a plain nearest-neighbour vote recovered most of what retrieved examples added on two tasks. Change your taxonomy, and you must change the examples and training data too.",
+   "startTimeMs": 263631,
+   "endTimeMs": 274778
+  },
+  {
+   "id": "patterns-this-week-and-sign-off",
+   "role": "heading",
+   "text": "Patterns this week and sign-off",
+   "startTimeMs": 275789
+  },
+  {
+   "id": "patterns-this-week-and-sign-off-1",
+   "text": "The pattern this week: let the small model take the first pass, with rules or a bigger model behind it. Check outputs against the source, and score the exact file you deploy.",
+   "startTimeMs": 276039,
+   "endTimeMs": 287496
+  },
+  {
+   "id": "patterns-this-week-and-sign-off-2",
+   "text": "When definitions change, change the examples with them. Links and numbers are in the show notes. Thanks for listening, and see you next Wednesday.",
+   "startTimeMs": 287933,
+   "endTimeMs": 296550
+  }
+ ]
+}

@@ -1,0 +1,103 @@
+{
+  "id": "2026-11-04-small-models",
+  "title": "Small Models, Real Systems — 4 Nov",
+  "description": "<p>A laptop benchmark shows when a fine-tuned 150M encoder beats a prompted 4B model and when it only ties, XDecideBench finds English-fitted confidence thresholds and model picks don't hold across 122 languages, BERT students distilled from an LLM beat their teacher on sentences that carry sentiment, a study of selective escalation shows that finding errors is not the same as fixing them, and a 560M Tajik embedder fine-tuned in under an hour.</p><p><b>Read the companion blog post (full summaries, numbers and all source links):</b> <a href='https://swaroopgn.github.io/mylari-digest/episodes/2026-11-04/'>https://swaroopgn.github.io/mylari-digest/episodes/2026-11-04/</a></p><p>(0:00) - Introduction</p><p>(0:23) - Do you need an LLM? Read the task first - <a href='https://driquet.info/do-you-need-an-llm/'>source</a></p><p>(1:22) - XDecideBench - English thresholds don't travel - <a href='https://arxiv.org/abs/2611.01370'>source</a></p><p>(2:14) - Distilled sentiment - beat the teacher, mind the neutral - <a href='https://arxiv.org/abs/2611.02985'>source</a></p><p>(3:03) - Second opinions - finding errors is not fixing them - <a href='https://arxiv.org/abs/2611.02989'>source</a></p><p>(3:54) - Tajik embedder - a small fine-tune for retrieval - <a href='https://arxiv.org/abs/2611.00592'>source</a></p><p>(4:45) - Patterns this week and sign-off</p><p>Small Models, Real Systems - A weekly research digest by Mylari. Narration is synthetic (ElevenLabs TTS).</p>",
+  "publishedAt": "2026-11-04",
+  "durationSeconds": 310,
+  "audioFile": "2026-11-04-small-models.m4a",
+  "imageFile": "small-models-real-systems.jpg",
+  "timeline": [
+    {
+      "chapter": {
+        "title": "Introduction",
+        "startTimeMs": 0
+      }
+    },
+    {
+      "link": {
+        "startTimeMs": 1000,
+        "durationMs": 21072,
+        "url": "https://swaroopgn.github.io/mylari-digest/episodes/2026-11-04/"
+      }
+    },
+    {
+      "chapter": {
+        "title": "Do you need an LLM? Read the task first",
+        "startTimeMs": 23072
+      }
+    },
+    {
+      "link": {
+        "startTimeMs": 24072,
+        "durationMs": 57864,
+        "url": "https://driquet.info/do-you-need-an-llm/"
+      }
+    },
+    {
+      "chapter": {
+        "title": "XDecideBench - English thresholds don't travel",
+        "startTimeMs": 82936
+      }
+    },
+    {
+      "link": {
+        "startTimeMs": 83936,
+        "durationMs": 49453,
+        "url": "https://arxiv.org/abs/2611.01370"
+      }
+    },
+    {
+      "chapter": {
+        "title": "Distilled sentiment - beat the teacher, mind the neutral",
+        "startTimeMs": 134389
+      }
+    },
+    {
+      "link": {
+        "startTimeMs": 135389,
+        "durationMs": 46892,
+        "url": "https://arxiv.org/abs/2611.02985"
+      }
+    },
+    {
+      "chapter": {
+        "title": "Second opinions - finding errors is not fixing them",
+        "startTimeMs": 183281
+      }
+    },
+    {
+      "link": {
+        "startTimeMs": 184281,
+        "durationMs": 49609,
+        "url": "https://arxiv.org/abs/2611.02989"
+      }
+    },
+    {
+      "chapter": {
+        "title": "Tajik embedder - a small fine-tune for retrieval",
+        "startTimeMs": 234890
+      }
+    },
+    {
+      "link": {
+        "startTimeMs": 235890,
+        "durationMs": 48983,
+        "url": "https://arxiv.org/abs/2611.00592"
+      }
+    },
+    {
+      "chapter": {
+        "title": "Patterns this week and sign-off",
+        "startTimeMs": 285873
+      }
+    },
+    {
+      "link": {
+        "startTimeMs": 286873,
+        "durationMs": 21913,
+        "url": "https://swaroopgn.github.io/mylari-digest/episodes/2026-11-04/"
+      }
+    }
+  ],
+  "transcriptFile": "2026-11-04-small-models.transcript.json"
+}
