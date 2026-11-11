@@ -7,7 +7,7 @@
     <description>A weekly ~5-minute research digest on fine-tuning small language models (LoRA/QLoRA/PEFT, distillation, instruction and structured-output tuning) for metadata generation and content-understanding systems: tagging, attribute extraction, taxonomy classification, moderation and retrieval enrichment. Practical methods, evaluation, and production lessons. Produced by Mylari.</description>
     <language>en</language>
     <copyright>© 2026 Mylari</copyright>
-    <lastBuildDate>Wed, 04 Nov 2026 18:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 11 Nov 2026 18:00:00 +0100</lastBuildDate>
     <image><url>https://swaroopgn.github.io/mylari-digest/cover.jpg</url><title>Small Models, Real Systems</title><link>https://swaroopgn.github.io/mylari-digest/</link></image>
     <itunes:author>Mylari</itunes:author>
     <itunes:summary>A weekly ~5-minute research digest on fine-tuning small language models (LoRA/QLoRA/PEFT, distillation, instruction and structured-output tuning) for metadata generation and content-understanding systems: tagging, attribute extraction, taxonomy classification, moderation and retrieval enrichment. Practical methods, evaluation, and production lessons. Produced by Mylari.</itunes:summary>
@@ -18,6 +18,22 @@
     <itunes:type>episodic</itunes:type>
     <itunes:owner><itunes:name>Mylari</itunes:name></itunes:owner>
     <podcast:locked>no</podcast:locked>
+    <item>
+      <title>Small first, check what ships (11 Nov 2026)</title>
+      <description>Atlassian puts a fine-tuned 4B model in front of a 20B safety model and halves moderation latency, a 400M job-posting extractor matches a 27B model but only stores salaries whose digits appear in the text, Mobile AI Factory builds fine-tuned small models per phone and shows why you score the exact quantized file, an 11 MB Russian embedder drops the transformer at serving time, and an audit finds that LLM annotators, even after fine-tuning, follow old labels more than new definitions. Show notes and sources: https://swaroopgn.github.io/mylari-digest/episodes/2026-11-11/</description>
+      <content:encoded><![CDATA[<p>Atlassian puts a fine-tuned 4B model in front of a 20B safety model and halves moderation latency, a 400M job-posting extractor matches a 27B model but only stores salaries whose digits appear in the text, Mobile AI Factory builds fine-tuned small models per phone and shows why you score the exact quantized file, an 11 MB Russian embedder drops the transformer at serving time, and an audit finds that LLM annotators, even after fine-tuning, follow old labels more than new definitions.</p><p>Show notes and all source links: <a href="https://swaroopgn.github.io/mylari-digest/episodes/2026-11-11/">https://swaroopgn.github.io/mylari-digest/episodes/2026-11-11/</a></p>]]></content:encoded>
+      <link>https://swaroopgn.github.io/mylari-digest/episodes/2026-11-11/</link>
+      <guid isPermaLink="false">small-models-real-systems-2026-11-11</guid>
+      <pubDate>Wed, 11 Nov 2026 18:00:00 +0100</pubDate>
+      <enclosure url="https://swaroopgn.github.io/mylari-digest/audio/small-models-real-systems-2026-11-11.mp3" length="4765365" type="audio/mpeg"/>
+      <itunes:title>Small first, check what ships (11 Nov 2026)</itunes:title>
+      <itunes:summary>Atlassian puts a fine-tuned 4B model in front of a 20B safety model and halves moderation latency, a 400M job-posting extractor matches a 27B model but only stores salaries whose digits appear in the text, Mobile AI Factory builds fine-tuned small models per phone and shows why you score the exact quantized file, an 11 MB Russian embedder drops the transformer at serving time, and an audit finds that LLM annotators, even after fine-tuning, follow old labels more than new definitions.</itunes:summary>
+      <itunes:duration>00:04:58</itunes:duration>
+      <itunes:episode>7</itunes:episode>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:image href="https://swaroopgn.github.io/mylari-digest/cover.jpg"/>
+    </item>
     <item>
       <title>Read the task, check the threshold (4 Nov 2026)</title>
       <description>A laptop benchmark shows when a fine-tuned 150M encoder beats a prompted 4B model and when it only ties, XDecideBench finds English-fitted confidence thresholds and model picks don't hold across 122 languages, BERT students distilled from an LLM beat their teacher on sentences that carry sentiment, a study of selective escalation shows that finding errors is not the same as fixing them, and a 560M Tajik embedder fine-tuned in under an hour. Show notes and sources: https://swaroopgn.github.io/mylari-digest/episodes/2026-11-04/</description>
