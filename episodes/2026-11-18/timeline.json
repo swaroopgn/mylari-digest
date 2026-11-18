@@ -1,0 +1,109 @@
+{
+  "items": [
+    {
+      "chapter": {
+        "title": "Introduction",
+        "start_time_ms": 0
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 1000,
+        "duration_ms": 23554,
+        "url": "https://swaroopgn.github.io/mylari-digest/episodes/2026-11-18/"
+      }
+    },
+    {
+      "chapter": {
+        "title": "Perplexity Decider - distill the probabilities",
+        "start_time_ms": 25554
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 26554,
+        "duration_ms": 16853,
+        "url": "https://www.perplexity.ai/hub/blog/perplexity-decider"
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 44407,
+        "duration_ms": 16853,
+        "url": "https://huggingface.co/perplexity-ai/pplx-decider-flash-v1.3"
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 62260,
+        "duration_ms": 16853,
+        "url": "https://www.unite.ai/perplexity-releases-decider-v1-3-models-with-text-span-extraction/"
+      }
+    },
+    {
+      "chapter": {
+        "title": "24 papers - when zero-shot replaces fine-tuning",
+        "start_time_ms": 80115
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 81115,
+        "duration_ms": 58883,
+        "url": "https://arxiv.org/abs/2611.20191"
+      }
+    },
+    {
+      "chapter": {
+        "title": "ICD-10 coding - call the big model a third of the time",
+        "start_time_ms": 140998
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 141998,
+        "duration_ms": 49139,
+        "url": "https://arxiv.org/abs/2611.21891"
+      }
+    },
+    {
+      "chapter": {
+        "title": "Pathology reports - fast, calibrated, not everywhere",
+        "start_time_ms": 192137
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 193137,
+        "duration_ms": 56009,
+        "url": "https://arxiv.org/abs/2611.20129"
+      }
+    },
+    {
+      "chapter": {
+        "title": "Japanese clinical extraction - mind the output limit",
+        "start_time_ms": 250146
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 251146,
+        "duration_ms": 42164,
+        "url": "https://arxiv.org/abs/2611.22219"
+      }
+    },
+    {
+      "chapter": {
+        "title": "Patterns this week and sign-off",
+        "start_time_ms": 294310
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 295310,
+        "duration_ms": 24238,
+        "url": "https://swaroopgn.github.io/mylari-digest/episodes/2026-11-18/"
+      }
+    }
+  ]
+}

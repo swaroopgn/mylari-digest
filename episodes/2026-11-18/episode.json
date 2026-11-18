@@ -6,5 +6,8 @@
   "summary": "Perplexity distills a 27B decision model into a 4B one by matching its probabilities, a swap test across 24 papers shows when a zero-shot decision model can replace a fine-tuned classifier, an ICD-10 coder calls a big model on only a third of cases and beats calling it on all of them, decision models extract pathology fields fast but miss numbers and unstated fields, and Japanese clinical extraction shows how a tight output-token limit makes a fine-tuned model look weak.",
   "audio": "audio.mp3",
   "voice": "ElevenLabs Daniel - Steady Broadcaster (eleven_v4)",
-  "spotify_title": "Small Models, Real Systems — 18 Nov 2026"
+  "spotify_title": "Small Models, Real Systems — 18 Nov 2026",
+  "spotify_episode_uri": "spotify:episode:2U0LI3YAmyqcUDFT8t2MFx",
+  "spotify_url": "https://open.spotify.com/episode/2U0LI3YAmyqcUDFT8t2MFx",
+  "spotify_ready": true
 }
