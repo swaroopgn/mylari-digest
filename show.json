@@ -10,6 +10,11 @@
   "owner_email": "",
   "base_url": "https://swaroopgn.github.io/mylari-digest",
   "pronunciations": {
+    "RoBERTa": "Roberta",
+    "ICD-10": "I C D ten",
+    "AIRI": "A I R I",
+    "Kempelen": "Kem-peh-len",
+    "Kolkata": "Kol-kah-tah",
     "StaRSE": "Star S E",
     "ruBERT": "Roo Bert",
     "ITMO": "I T M O",

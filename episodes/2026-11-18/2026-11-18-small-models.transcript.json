@@ -1,0 +1,157 @@
+{
+ "version": 1,
+ "episodeId": "2026-11-18-small-models",
+ "title": "Small Models, Real Systems — 18 Nov",
+ "blocks": [
+  {
+   "id": "introduction",
+   "role": "heading",
+   "text": "Introduction",
+   "startTimeMs": 0
+  },
+  {
+   "id": "introduction-1",
+   "text": "Hi, and welcome to Small Models, Real Systems, the weekly research digest by Mylari. This is edition eight, for Wednesday the eighteenth of November, 2026. This week: distill the probabilities, not just the labels, send only the hard cases to a big model, and find out exactly where your small model stops being reliable.",
+   "startTimeMs": 279,
+   "endTimeMs": 24531
+  },
+  {
+   "id": "perplexity-decider-distill-the",
+   "role": "heading",
+   "text": "Perplexity Decider - distill the probabilities",
+   "startTimeMs": 25554
+  },
+  {
+   "id": "perplexity-decider-distill-the-1",
+   "text": "First, Perplexity, which released Decider version one point three on the twelfth. A decision model does not write text. It picks from a list of options and returns a probability for each, for jobs like classification, routing, moderation and reranking.",
+   "startTimeMs": 25804,
+   "endTimeMs": 42231
+  },
+  {
+   "id": "perplexity-decider-distill-the-2",
+   "text": "The large version is built on a twenty-seven billion parameter Qwen model. The Flash version, on a four billion parameter Qwen, is distilled from it: the student learns the teacher's whole probability spread, not just the gold labels.",
+   "startTimeMs": 42457,
+   "endTimeMs": 59088
+  },
+  {
+   "id": "perplexity-decider-distill-the-3",
+   "text": "Perplexity says this generalised better to held-out data than plain label training, which only did better on benchmarks that had their own training data. On one million real requests, Flash cost thirteen dollars and twenty-four cents, half of the large model's twenty-six dollars and forty-seven cents.",
+   "startTimeMs": 59566,
+   "endTimeMs": 79144
+  },
+  {
+   "id": "24-papers-when-zero-shot-replaces-fine",
+   "role": "heading",
+   "text": "24 papers - when zero-shot replaces fine-tuning",
+   "startTimeMs": 80115
+  },
+  {
+   "id": "24-papers-when-zero-shot-replaces-fine-1",
+   "text": "Second, Marek Šuppa and Jaroslav Kopčan, from Comenius University, Cisco and the Kempelen Institute, posted on the fifteenth. They took twenty-four published papers that fine-tuned a classifier and swapped in a zero-shot decision model, keeping each paper's splits, labels and metric.",
+   "startTimeMs": 80365,
+   "endTimeMs": 100555
+  },
+  {
+   "id": "24-papers-when-zero-shot-replaces-fine-2",
+   "text": "That gave forty-six test sets. Zero-shot replaced the paper's model on twelve, mostly plain single judgments. Where it fell short, the usual cause was an annotation rule that the label name never states.",
+   "startTimeMs": 100784,
+   "endTimeMs": 115319
+  },
+  {
+   "id": "24-papers-when-zero-shot-replaces-fine-3",
+   "text": "With five hundred labels, calibration plus automatic prompt optimisation closed a median seventy-two percent of the gap, at a median of one dollar sixty-six per search. Fine-tuned encoders such as RoBERTa closed fifty-nine percent. A Low-Rank Adaptation, or LoRA, fine-tune of a twenty-seven billion parameter Qwen closed ninety-seven.",
+   "startTimeMs": 115770,
+   "endTimeMs": 140046
+  },
+  {
+   "id": "icd-10-coding-call-the-big-model-a",
+   "role": "heading",
+   "text": "ICD-10 coding - call the big model a third of the time",
+   "startTimeMs": 140998
+  },
+  {
+   "id": "icd-10-coding-call-the-big-model-a-1",
+   "text": "Third, a team from the AIRI institute and Moscow universities, posted on the sixteenth, on assigning ICD-10 diagnosis codes from short diagnosis text. A supervised pipeline of embeddings, tree models and a reranker proposes candidate codes.",
+   "startTimeMs": 141248,
+   "endTimeMs": 158242
+  },
+  {
+   "id": "icd-10-coding-call-the-big-model-a-2",
+   "text": "Its top guess is right seventy-four percent of the time, and the right code is in its top ten ninety-three percent of the time. Calling GPT five point six Sol on every case gets eighty-one percent.",
+   "startTimeMs": 158497,
+   "endTimeMs": 172591
+  },
+  {
+   "id": "icd-10-coding-call-the-big-model-a-3",
+   "text": "Their final system asks the big model only when the small one is unsure, about thirty-two percent of cases, and reaches eighty-three percent. That cuts the error rate by about a third. The big model works best as a reranker for the uncertain cases.",
+   "startTimeMs": 172908,
+   "endTimeMs": 191126
+  },
+  {
+   "id": "pathology-reports-fast-calibrated-not",
+   "role": "heading",
+   "text": "Pathology reports - fast, calibrated, not everywhere",
+   "startTimeMs": 192137
+  },
+  {
+   "id": "pathology-reports-fast-calibrated-not-1",
+   "text": "Fourth, two doctors at Tata Medical Center in Kolkata, posted on the fifteenth. They used decision models to pull twenty-five fields from one thousand one hundred and thirteen oral cancer pathology reports, checked against a clinical database.",
+   "startTimeMs": 192387,
+   "endTimeMs": 208295
+  },
+  {
+   "id": "pathology-reports-fast-calibrated-not-2",
+   "text": "Tev one, a four billion parameter model, averaged ninety-one point seven percent, the same as a nine billion parameter generative Qwen, and was four times faster. The decision models were weak on measurements binned into categories and on fields the report did not mention.",
+   "startTimeMs": 208769,
+   "endTimeMs": 226460
+  },
+  {
+   "id": "pathology-reports-fast-calibrated-not-3",
+   "text": "One model did worse when asked all twenty-five questions in a single request. Pooled probabilities were well calibrated, but they did not flag systematic errors within a field. In a simulation, sending answers below zero point nine four confidence to a cloud model lifted accuracy to ninety-eight percent, with thirty-eight percent of answers escalated.",
+   "startTimeMs": 227109,
+   "endTimeMs": 249217
+  },
+  {
+   "id": "japanese-clinical-extraction-mind-the",
+   "role": "heading",
+   "text": "Japanese clinical extraction - mind the output limit",
+   "startTimeMs": 250146
+  },
+  {
+   "id": "japanese-clinical-extraction-mind-the-1",
+   "text": "Fifth, Hokkaido University, posted on the seventeenth, on fine-grained Japanese clinical entity extraction with one hundred and thirteen categories. Two fine-tuned BERT models scored about point eight four F one.",
+   "startTimeMs": 250396,
+   "endTimeMs": 265222
+  },
+  {
+   "id": "japanese-clinical-extraction-mind-the-2",
+   "text": "The best zero-shot open model reached only point three four, and forcing a JSON schema barely changed that. After quantized LoRA fine-tuning, every model of thirteen billion parameters or more beat BERT, at point eight eight to point nine one.",
+   "startTimeMs": 265896,
+   "endTimeMs": 283063
+  },
+  {
+   "id": "japanese-clinical-extraction-mind-the-3",
+   "text": "But only with a large enough output-token limit. Raising the limit alone added five to eight points. A truncated answer can look like a weak model.",
+   "startTimeMs": 283443,
+   "endTimeMs": 293328
+  },
+  {
+   "id": "patterns-this-week-and-sign-off",
+   "role": "heading",
+   "text": "Patterns this week and sign-off",
+   "startTimeMs": 294310
+  },
+  {
+   "id": "patterns-this-week-and-sign-off-1",
+   "text": "The pattern this week: put a small or decision model on the common path, and send only uncertain cases to a big model. Distill probabilities, not just labels.",
+   "startTimeMs": 294560,
+   "endTimeMs": 305823
+  },
+  {
+   "id": "patterns-this-week-and-sign-off-2",
+   "text": "Then test where the small model stops: unstated label rules, missing fields, numbers and output limits. Links and numbers are in the show notes. Thanks for listening, and see you next Wednesday.",
+   "startTimeMs": 306261,
+   "endTimeMs": 319313
+  }
+ ]
+}

@@ -1,0 +1,52 @@
+{
+  "duration_ms": 320548,
+  "chapters": [
+    {
+      "title": "Introduction",
+      "start_time_ms": 0,
+      "sources": []
+    },
+    {
+      "title": "Perplexity Decider - distill the probabilities",
+      "start_time_ms": 25554,
+      "sources": [
+        "https://www.perplexity.ai/hub/blog/perplexity-decider",
+        "https://huggingface.co/perplexity-ai/pplx-decider-flash-v1.3",
+        "https://www.unite.ai/perplexity-releases-decider-v1-3-models-with-text-span-extraction/"
+      ]
+    },
+    {
+      "title": "24 papers - when zero-shot replaces fine-tuning",
+      "start_time_ms": 80115,
+      "sources": [
+        "https://arxiv.org/abs/2611.20191"
+      ]
+    },
+    {
+      "title": "ICD-10 coding - call the big model a third of the time",
+      "start_time_ms": 140998,
+      "sources": [
+        "https://arxiv.org/abs/2611.21891"
+      ]
+    },
+    {
+      "title": "Pathology reports - fast, calibrated, not everywhere",
+      "start_time_ms": 192137,
+      "sources": [
+        "https://arxiv.org/abs/2611.20129"
+      ]
+    },
+    {
+      "title": "Japanese clinical extraction - mind the output limit",
+      "start_time_ms": 250146,
+      "sources": [
+        "https://arxiv.org/abs/2611.22219"
+      ]
+    },
+    {
+      "title": "Patterns this week and sign-off",
+      "start_time_ms": 294310,
+      "sources": []
+    }
+  ]
+}
