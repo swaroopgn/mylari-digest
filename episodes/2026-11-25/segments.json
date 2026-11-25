@@ -1,0 +1,49 @@
+{
+  "segments": [
+    {
+      "title": "Introduction",
+      "sources": [],
+      "text": "Hi, and welcome to Small Models, Real Systems, the weekly research digest by Mylari. This is edition nine, for Wednesday the twenty-fifth of November, 2026. This week is about probabilities: borrow a big model's labels, train your own judge, read confidence from the tokens, and check what compression does to your decisions."
+    },
+    {
+      "title": "Hornetsecurity - borrow the labels, keep the student",
+      "sources": [
+        "https://driquet.info/distilling-a-classifier/"
+      ],
+      "text": "First, Damien Riquet, lead research engineer at Hornetsecurity, posted on the twenty-first. With no labels, he let rented decision models label nine thousand arXiv abstracts by field, then fine-tuned a one hundred and fifty million parameter encoder on their answers. The best teacher, Perplexity's twenty-seven billion parameter Decider, did the labeling for eight cents. Every student landed within a point of its teacher: the best scored seventy-nine point four macro F one, against seventy-nine point eight. Mistakes carried over too. The student copied two thirds of the teacher's wrong answers. Training on the teacher's probabilities instead of its top answer never hurt. The student answers in thirty-two milliseconds on a laptop, but the same encoder trained on real labels still scored five points higher. His advice: label a hundred texts by hand to pick the teacher."
+    },
+    {
+      "title": "Comet - train your own judge",
+      "sources": [
+        "https://www.comet.com/site/blog/finetune-judge-vs-jev/"
+      ],
+      "text": "Second, Aswin Thiyagarajan at Comet, the machine learning tooling company, on the nineteenth. A strong model labeled a thousand real conversations with their in-product assistant, three yes or no questions each. Six hundred of them trained a Low-Rank Adaptation, or LoRA, adapter on a one point seven billion parameter Qwen, in about thirty-seven minutes on a MacBook. On three hundred held-out turns, it was the best judge of whether the assistant declined: ninety-three percent accuracy, against about eighty-six for the decision model Jev and eighty-eight for a GPT-4o mini judge. But on whether an answer was factually sound, Jev stayed ahead. Their rule: train your own judge for the shape of an interaction, and keep a general one for questions that need knowledge."
+    },
+    {
+      "title": "Barclays - confidence for every extracted field",
+      "sources": [
+        "https://arxiv.org/abs/2611.30119"
+      ],
+      "text": "Third, the AI Lab at Barclays Investment Bank, posted on the twenty-third, on pulling fields from receipts and contracts with vision-language models. The model already gives a probability for every token. They map those onto each extracted field and take the lowest as that field's confidence. It flagged wrong fields well, with an area under the curve of point seven four to point nine one across three models. Asking the model how sure it was scored only point five three to point five six, close to chance. Then the uncertain fields became the training set. A reinforcement learning fine-tune on just sixty-seven receipt examples lifted accuracy from seventy-eight and a half to eighty-seven and a half percent, and cut fields needing human review by eighty percent."
+    },
+    {
+      "title": "Sheffield - read the probabilities, don't ask",
+      "sources": [
+        "https://arxiv.org/abs/2611.25289"
+      ],
+      "text": "Fourth, Owen Cook and Xingyi Song at the University of Sheffield, posted on the eighteenth. They tested eleven open-weight models, from one to thirty-two billion parameters, as zero-shot classifiers. Reading the label probabilities separated right answers from wrong ones far better than asking the model for its confidence: an area under the curve of point seven four to point seven seven, against point five seven to point six six. Swapping label names for single-token codes cost three to six accuracy points. And scoring only where labels start to differ cut decoding steps by eighty-eight to ninety-six percent on the largest label sets, with similar results."
+    },
+    {
+      "title": "Intel - what compression does to decisions",
+      "sources": [
+        "https://arxiv.org/abs/2611.26339"
+      ],
+      "text": "Fifth, Mohammed Nayeem Khan and Vrishank Tiwari at Intel, posted on the nineteenth. They compressed Laya, a four hundred and twenty-one million parameter decision encoder, and counted how many decisions changed. Half precision changed point two percent on items like its training data, but two point two percent on outside benchmark questions. So test on data the model has not seen. Deleting six layers changed nine percent of outside answers, and calibration error jumped from about six percent to thirty-nine. One fitted temperature, with no labels, brought it back under four. Dynamic eight-bit quantization on a CPU changed thirty percent of decisions."
+    },
+    {
+      "title": "Patterns this week and sign-off",
+      "sources": [],
+      "text": "The pattern this week: the probabilities are the useful part. Keep the teacher's, read the model's own instead of asking for its confidence, and check them again after you compress. And a student, or a home-made judge, is only as good as its labels. Links and numbers are in the show notes. Thanks for listening, and see you next Wednesday."
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "id": "2026-11-18-small-models",
+  "title": "Small Models, Real Systems — 18 Nov",
+  "description": "<p>Perplexity distills a 27B decision model into a 4B one by matching its probabilities, a swap test across 24 papers shows when a zero-shot decision model can replace a fine-tuned classifier, an ICD-10 coder calls a big model on only a third of cases and beats calling it on all of them, decision models extract pathology fields fast but miss numbers and unstated fields, and Japanese clinical extraction shows how a tight output-token limit makes a fine-tuned model look weak.</p><p><b>Read the companion blog post (full summaries, numbers and all source links):</b> <a href='https://swaroopgn.github.io/mylari-digest/episodes/2026-11-18/'>https://swaroopgn.github.io/mylari-digest/episodes/2026-11-18/</a></p><p>(0:00) - Introduction</p><p>(0:25) - Perplexity Decider - distill the probabilities - <a href='https://www.perplexity.ai/hub/blog/perplexity-decider'>source</a> - <a href='https://huggingface.co/perplexity-ai/pplx-decider-flash-v1.3'>source</a> - <a href='https://www.unite.ai/perplexity-releases-decider-v1-3-models-with-text-span-extraction/'>source</a></p><p>(1:20) - 24 papers - when zero-shot replaces fine-tuning - <a href='https://arxiv.org/abs/2611.20191'>source</a></p><p>(2:20) - ICD-10 coding - call the big model a third of the time - <a href='https://arxiv.org/abs/2611.21891'>source</a></p><p>(3:12) - Pathology reports - fast, calibrated, not everywhere - <a href='https://arxiv.org/abs/2611.20129'>source</a></p><p>(4:10) - Japanese clinical extraction - mind the output limit - <a href='https://arxiv.org/abs/2611.22219'>source</a></p><p>(4:54) - Patterns this week and sign-off</p><p>Small Models, Real Systems - A weekly research digest by Mylari. Narration is synthetic (ElevenLabs TTS).</p>",
+  "publishedAt": "2026-11-18",
+  "durationSeconds": 321,
+  "audioFile": "2026-11-18-small-models.m4a",
+  "imageFile": "small-models-real-systems.jpg",
+  "timeline": [
+    {
+      "chapter": {
+        "title": "Introduction",
+        "startTimeMs": 0
+      }
+    },
+    {
+      "link": {
+        "startTimeMs": 1000,
+        "durationMs": 23554,
+        "url": "https://swaroopgn.github.io/mylari-digest/episodes/2026-11-18/"
+      }
+    },
+    {
+      "chapter": {
+        "title": "Perplexity Decider - distill the probabilities",
+        "startTimeMs": 25554
+      }
+    },
+    {
+      "link": {
+        "startTimeMs": 26554,
+        "durationMs": 16853,
+        "url": "https://www.perplexity.ai/hub/blog/perplexity-decider"
+      }
+    },
+    {
+      "link": {
+        "startTimeMs": 44407,
+        "durationMs": 16853,
+        "url": "https://huggingface.co/perplexity-ai/pplx-decider-flash-v1.3"
+      }
+    },
+    {
+      "link": {
+        "startTimeMs": 62260,
+        "durationMs": 16853,
+        "url": "https://www.unite.ai/perplexity-releases-decider-v1-3-models-with-text-span-extraction/"
+      }
+    },
+    {
+      "chapter": {
+        "title": "24 papers - when zero-shot replaces fine-tuning",
+        "startTimeMs": 80115
+      }
+    },
+    {
+      "link": {
+        "startTimeMs": 81115,
+        "durationMs": 58883,
+        "url": "https://arxiv.org/abs/2611.20191"
+      }
+    },
+    {
+      "chapter": {
+        "title": "ICD-10 coding - call the big model a third of the time",
+        "startTimeMs": 140998
+      }
+    },
+    {
+      "link": {
+        "startTimeMs": 141998,
+        "durationMs": 49139,
+        "url": "https://arxiv.org/abs/2611.21891"
+      }
+    },
+    {
+      "chapter": {
+        "title": "Pathology reports - fast, calibrated, not everywhere",
+        "startTimeMs": 192137
+      }
+    },
+    {
+      "link": {
+        "startTimeMs": 193137,
+        "durationMs": 56009,
+        "url": "https://arxiv.org/abs/2611.20129"
+      }
+    },
+    {
+      "chapter": {
+        "title": "Japanese clinical extraction - mind the output limit",
+        "startTimeMs": 250146
+      }
+    },
+    {
+      "link": {
+        "startTimeMs": 251146,
+        "durationMs": 42164,
+        "url": "https://arxiv.org/abs/2611.22219"
+      }
+    },
+    {
+      "chapter": {
+        "title": "Patterns this week and sign-off",
+        "startTimeMs": 294310
+      }
+    },
+    {
+      "link": {
+        "startTimeMs": 295310,
+        "durationMs": 24238,
+        "url": "https://swaroopgn.github.io/mylari-digest/episodes/2026-11-18/"
+      }
+    }
+  ],
+  "transcriptFile": "2026-11-18-small-models.transcript.json",
+  "showId": "small-models-real-systems",
+  "kind": "weekly",
+  "summary": "Edition 8 of the weekly small-models digest: Perplexity distills a 27B decision model into a 4B one by matching its probabilities, at half the cost, and a swap test across 24 papers shows when a zero-shot decision model can replace a fine-tuned classifier. Plus an ICD-10 coder that calls a big model on a third of cases and beats calling it on all, decision models on pathology reports, and how output-token limits skew Japanese clinical extraction results.",
+  "topics": [
+    "small-models",
+    "distillation",
+    "fine-tuning",
+    "classification",
+    "extraction",
+    "decision-models",
+    "evaluation",
+    "healthcare"
+  ],
+  "headline": "Perplexity distills its decider to 4B"
+}
