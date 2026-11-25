@@ -1,0 +1,95 @@
+{
+  "items": [
+    {
+      "chapter": {
+        "title": "Introduction",
+        "start_time_ms": 0
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 1000,
+        "duration_ms": 24181,
+        "url": "https://swaroopgn.github.io/mylari-digest/episodes/2026-11-25/"
+      }
+    },
+    {
+      "chapter": {
+        "title": "Hornetsecurity - borrow the labels, keep the student",
+        "start_time_ms": 26181
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 27181,
+        "duration_ms": 58491,
+        "url": "https://driquet.info/distilling-a-classifier/"
+      }
+    },
+    {
+      "chapter": {
+        "title": "Comet - train your own judge",
+        "start_time_ms": 86672
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 87672,
+        "duration_ms": 50419,
+        "url": "https://www.comet.com/site/blog/finetune-judge-vs-jev/"
+      }
+    },
+    {
+      "chapter": {
+        "title": "Barclays - confidence for every extracted field",
+        "start_time_ms": 139091
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 140091,
+        "duration_ms": 51620,
+        "url": "https://arxiv.org/abs/2611.30119"
+      }
+    },
+    {
+      "chapter": {
+        "title": "Sheffield - read the probabilities, don't ask",
+        "start_time_ms": 192711
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 193711,
+        "duration_ms": 45064,
+        "url": "https://arxiv.org/abs/2611.25289"
+      }
+    },
+    {
+      "chapter": {
+        "title": "Intel - what compression does to decisions",
+        "start_time_ms": 239775
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 240775,
+        "duration_ms": 45691,
+        "url": "https://arxiv.org/abs/2611.26339"
+      }
+    },
+    {
+      "chapter": {
+        "title": "Patterns this week and sign-off",
+        "start_time_ms": 287466
+      }
+    },
+    {
+      "link": {
+        "start_time_ms": 288466,
+        "duration_ms": 21913,
+        "url": "https://swaroopgn.github.io/mylari-digest/episodes/2026-11-25/"
+      }
+    }
+  ]
+}

@@ -6,5 +6,8 @@
   "summary": "A 150M encoder trained only on a rented decision model's labels lands within a point of its teacher, mistakes included; Comet's 1.7B LoRA judge beats off-the-shelf judges on pattern questions but not on correctness; Barclays reads per-field confidence from token probabilities and turns the uncertain fields into training data; Sheffield shows logit scoring beats asked-for confidence in zero-shot classifiers; and Intel counts how many decisions compression flips.",
   "audio": "audio.mp3",
   "voice": "ElevenLabs Daniel - Steady Broadcaster (eleven_v4)",
-  "spotify_title": "Small Models, Real Systems — 25 Nov 2026"
+  "spotify_title": "Small Models, Real Systems — 25 Nov 2026",
+  "spotify_episode_uri": "spotify:episode:6fvOWcRj9H9QyQheNYafeC",
+  "spotify_url": "https://open.spotify.com/episode/6fvOWcRj9H9QyQheNYafeC",
+  "spotify_ready": true
 }
